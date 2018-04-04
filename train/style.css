@@ -68,7 +68,7 @@ header a:active {
 section.banner {
   position: relative;
   height: 586px;
-  background: url('img/banner_bg_min.png') no-repeat bottom;
+  background: url('img/banner_bg-min.png') no-repeat bottom;
   background-size: cover;
   color: #ffffff;
   padding-top: 50px;
