@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:500,700');
+/*  ##### common #####  */
+h2 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+}
+a:hover {
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+}
+.btn {
+  border-radius: 0;
+  font-family: 'Raleway', sans-serif;
+  font-size: 24px;
+  color: #fff;
+  background-color: #131313;
+  text-transform: uppercase;
+}
+.btn:hover {
+  background-color: #ff0036;
+}
+/*  ##### header #####  */
+#header {
+  min-height: 100vh;
+  background: url("../img/bg.png") top no-repeat #575757;
+  background-size: cover;
+}
+.header-top__logo {
+  text-transform: capitalize;
+  color: #fff;
+  font-size: 36px;
+}
+.header-top {
+  height: 70px;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.header-top .logo svg {
+  position: relative;
+  left: 0;
+}
+.header-top .main-menu ul {
+  margin: 0;
+}
+.header-top .main-menu .main-menu__item {
+  margin-right: 20px;
+}
+.header-top .main-menu .main-menu__item:last-child {
+  margin-right: 0;
+}
+.header-top .main-menu .main-menu__item .main-menu__link {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70px;
+  padding: 5px;
+  color: #a4a4a4;
+  text-transform: uppercase;
+  transition: all 0.1s ease;
+}
+.header-top .main-menu .main-menu__item .main-menu__link::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  display: block;
+  height: 3px;
+  width: 28px;
+  margin-left: -14px;
+  background-color: transparent;
+  transition: all 0.1s ease;
+}
+.header-top .main-menu .main-menu__item .main-menu__link::after {
+  content: "";
+  position: absolute;
+  bottom: 1px;
+  left: 50%;
+  display: block;
+  height: 2px;
+  width: 28px;
+  margin-left: -14px;
+  background-color: transparent;
+  transition: all 0.1s ease;
+}
+.header-top .main-menu .main-menu__item .main-menu__link:hover {
+  color: #fff;
+  transition: all 0.1s ease;
+}
+.header-top .main-menu .main-menu__item .main-menu__link:hover::before {
+  background-color: #ff0036;
+  transition: all 0.1s ease;
+}
+.header-top .main-menu .main-menu__item .main-menu__link:hover::after {
+  background-color: #ff0036;
+  transition: all 0.1s ease;
+}
+.header-banner {
+  color: white;
+}
+.header-banner h2 {
+  margin-top: 160px;
+}
+.header-banner span {
+  color: #ff0036;
+}
+.header-banner p {
+  margin-top: 50px;
+}
+.header-banner button {
+  margin-top: 50px;
+}
+#about {
+  color: #505050;
+}
+#about .about-heading {
+  padding-bottom: 80px;
+}
+#about h2 {
+  padding: 90px 0 30px 0;
+  color: #262626;
+}
+#about span {
+  color: #ff0036;
+}
+#about .about-info .about-info__tab-heading {
+  padding-left: 40px;
+  background-color: #f7f7f7;
+  border-top: 1px solid #e7e7e7;
+  border-bottom: 1px solid #e7e7e7;
+  position: relative;
+}
+#about .about-info .about-info__tab-heading::before {
+  content: '+';
+  top: 50%;
+  left: 10px;
+  margin-top: -10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  border: 1px solid;
+  border-radius: 50%;
+}
