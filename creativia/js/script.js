@@ -9,6 +9,14 @@ $(document).ready(function(){
   		adaptiveHeight: false,
   		autoplay: true,
   		autoplaySpeed: 5000,
+  		 responsive: [
+    {
+      breakpoint: 600,
+      settings: {
+        arrows: false
+      }
+    }
+  ]
   });
 });
 /* ##### Initiate second Slick slider ##### */ 
@@ -58,6 +66,22 @@ $(document).ready(function(){
     });
   });
 })(jQuery);
+
+/* ##### smooth scrolling ##### */ 
+$(document).ready(function(){
+    $("#menu").on("click","a", function (event) {
+        //отменяем стандартную обработку нажатия по ссылке
+        event.preventDefault();
+        //забираем идентификатор бока с атрибута href
+        var id  = $(this).attr('href'),
+        //узнаем высоту от начала страницы до блока на который ссылается якорь
+            top = $(id).offset().top;
+        //анимируем переход на расстояние - top за 1500 мс
+        $('body,html').animate({scrollTop: top}, 1500);
+    });
+});
+
+
 /* ##### About toggles ##### */ 
 /* ##### The mostsilly implementation of toggles ever!!! I'll chenge it later ##### */
 window.onload = function() {
