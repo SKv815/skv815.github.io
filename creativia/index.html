@@ -15,23 +15,23 @@
 		<div class="header-top">
 			<div class="container">
 				<div class="row">
-					<div class="header-top__logo col-lg-3">
+					<div class="header-top__logo col-md-3">
 						<svg width="300" height="200">
 							<polygon points="1 0, 250 0, 250 40, 184 109, 65 109, 1 40" stroke="#ff0036"
         stroke-width="2px" fill="#131313"/>
 							<text x="60" y=" 58" fill="#fff">creativia</text>
 						</svg>
 					</div>
-					<nav class="main-menu col-lg-9">
+					<nav id="menu" class="main-menu col-md-9">
 						<ul class="d-flex justify-content-end">
-							<li class="main-menu__item"><a class="main-menu__link" href="#">home</a></li>
-							<li class="main-menu__item"><a class="main-menu__link" href="#">about us</a></li>
-							<li class="main-menu__item"><a class="main-menu__link" href="#">portfolio</a></li>
-							<li class="main-menu__item"><a class="main-menu__link" href="#">clients</a></li>
-							<li class="main-menu__item"><a class="main-menu__link" href="#">team</a></li>
-							<li class="main-menu__item"><a class="main-menu__link" href="#">services</a></li>
-							<li class="main-menu__item"><a class="main-menu__link" href="#">blog</a></li>
-							<li class="main-menu__item"><a class="main-menu__link" href="#">contact</a></li>
+							<li class="main-menu__item"><a class="main-menu__link" href="#header">home</a></li>
+							<li class="main-menu__item"><a class="main-menu__link" href="#about">about us</a></li>
+							<li class="main-menu__item"><a class="main-menu__link" href="#portfolio">portfolio</a></li>
+							<li class="main-menu__item"><a class="main-menu__link" href="#clients">clients</a></li>
+							<li class="main-menu__item"><a class="main-menu__link" href="#team">team</a></li>
+							<li class="main-menu__item"><a class="main-menu__link" href="#services">services</a></li>
+							<li class="main-menu__item"><a class="main-menu__link" href="#blog">blog</a></li>
+							<li class="main-menu__item"><a class="main-menu__link" href="#contact">contact</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -66,65 +66,938 @@
 					</div>
 				</div>
 				<div class="row about-info">
-					<div class="col-12 col-md-6">
+					<div class="col-12 col-lg-6">
 						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime ratione commodi, quaerat laudantium dolore tempora dolorem modi rerum nesciunt iure, excepturi corporis laboriosam quam fugiat impedit dignissimos repellendus placeat velit.</p>
-						<div class="about-info__tab about-info__tab_active">
-							<h3 class="about-info__tab-heading">Who is creativia</h3>
-							<p class="about-info__tab-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic facilis recusandae minus eum quaerat, dolorum modi, cupiditate maiores perferendis aliquam, quis adipisci quod accusamus dolore! Numquam minima quod aperiam exercitationem.</p>
+						<div class="about-info__toggle">
+							<h3 class="about-info__toggle-heading active"><span></span> Who is creativia</h3>
+							<p class="about-info__toggle-text active-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic facilis recusandae minus eum quaerat, dolorum modi, cupiditate maiores perferendis aliquam, quis adipisci quod accusamus dolore! Numquam minima quod aperiam exercitationem.</p>
 						</div>
-						<div class="about-info__tab">
-							<h3 class="about-info__tab-heading">Experiences</h3>
-							<p class="about-info__tab-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis nostrum provident reprehenderit, voluptatibus quo doloremque sed veniam exercitationem tenetur tempora, ea ad beatae? Temporibus incidunt fugiat necessitatibus quas quis debitis. Deleniti error nihil quia officiis laboriosam aut doloribus libero quas!</p>
+						<div class="about-info__toggle">
+							<h3 class="about-info__toggle-heading"><span></span>Experiences</h3>
+							<p class="about-info__toggle-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis nostrum provident reprehenderit, voluptatibus quo doloremque sed veniam exercitationem tenetur tempora, ea ad beatae? Temporibus incidunt fugiat necessitatibus quas quis debitis. Deleniti error nihil quia officiis laboriosam aut doloribus libero quas!</p>
 						</div>
-						<div class="about-info__tab">
-							<h3 class="about-info__tab-heading">Learn more</h3>
-							<p class="about-info__tab-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus, rem culpa placeat. Corrupti dolore porro minus et tenetur eaque ut.</p>
+						<div class="about-info__toggle">
+							<h3 class="about-info__toggle-heading"><span></span>Learn more</h3>
+							<p class="about-info__toggle-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus, rem culpa placeat. Corrupti dolore porro minus et tenetur eaque ut.</p>
 						</div>
 					</div>
-					<div class="col-12 col-md-6">
-						<img src="img/about.png" alt="photo-of-the-team">
+					<div class="col-12 col-lg-6">
+						<img src="img/about.png" alt="photo-of-the-team" class="img-fluid">
+					</div>
+				</div>
+				<div class="row">
+					<div class="scroll-bar"></div>
+				</div>
+				<div class="row about-2">
+					<div class="col-xs-12 col-sm-6 col-md-3 about-2__item">
+						<div class="hexagon d-flex justify-content-center">
+							<svg height="77" width="88">
+								<polygon points="1 38, 22 1, 66 1, 88 38, 66 76, 22 76" stroke-width="1px">
+	        				</svg>
+        					<span class="icon-heart"></span>
+        				</div>
+						<h3>Flat design</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, neque. Iste, quisquam. Commodi, nihil. Consequatur, dolorum, eum.</p>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-3 about-2__item">
+						<div class="hexagon d-flex justify-content-center">
+							<svg height="77" width="88">
+								<polygon points="1 38, 22 1, 66 1, 88 38, 66 76, 22 76" stroke-width="1px">
+	        				</svg>
+        					<span class="icon-check"></span>
+        				</div>
+						<h3>Retina ready</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate facilis assumenda natus incidunt, sint nihil temporibus dicta tempora.</p>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-3 about-2__item">
+						<div class="hexagon d-flex justify-content-center">
+							<svg height="77" width="88">
+								<polygon points="1 38, 22 1, 66 1, 88 38, 66 76, 22 76" stroke-width="1px">
+	        				</svg>
+        					<span class="icon-tablet"></span>
+        				</div>
+						<h3>Responsive</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo autem nam, non ducimus?</p>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-3 about-2__item">
+						<div class="hexagon d-flex justify-content-center">
+							<svg height="77" width="88">
+								<polygon points="1 38, 22 1, 66 1, 88 38, 66 76, 22 76" stroke-width="1px">
+	        				</svg>
+        					<span class="icon-fire"></span>
+        				</div>
+						<h3>Clean & useful</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi aspernatur reiciendis animi ipsa velit aperiam, consectetur unde quam distinctio?</p>
 					</div>
 				</div>
 			</div>
 		</section>
 		<section id="portfolio">
 			<div class="container">
-				
+				<div class="row text-center">
+					<div class="col">
+						<h2>portfolio</h2>
+					</div>
+				</div>
+			</div>
+				<div class="tabs">
+					<ul class="tabs-caption d-flex justify-content-center">
+						<li class="tab">All</li>
+						<li class="tab active">Illustration</li>
+						<li class="tab">Digital Art </li>
+						<li class="tab">Web design</li>
+					</ul>
+					<div class="tabs-content">
+						<div class="tabs-container">
+							<div class="tabs-content__item" data-design="design name 3-1"><img src="img/pf-dig1.jpg" alt="img-gtlart1"></div>
+							<div class="tabs-content__item" data-design="design name 4-2"><img src="img/pf-ill3.jpg" alt="img-gtlart2"></div>
+							<div class="tabs-content__item" data-design="design name 4-3"><img src="img/pf-web3.jpg" alt="img-gtlart3"></div>
+							<div class="tabs-content__item" data-design="design name 4-4"><img src="img/pf-dig8.jpg" alt="img-gtlart4"></div>
+							<div class="tabs-content__item" data-design="design name 4-5"><img src="img/pf-web5.jpg" alt="img-gtlart5"></div>
+							<div class="tabs-content__item" data-design="design name 4-6"><img src="img/pf-dig5.jpg" alt="img-gtlart6"></div>
+							<div class="tabs-content__item" data-design="design name 4-7"><img src="img/pf-web7.jpg" alt="img-gtlart7"></div>
+							<div class="tabs-content__item" data-design="design name 4-8"><img src="img/pf-ill6.jpg" alt="img-gtlart8"></div>
+						</div>
+					</div>
+					<div class="tabs-content active">
+						<div class="tabs-container">
+							<div class="tabs-content__item" data-design="design name 2-1"><img src="img/pf-ill1.jpg" alt="img-gtlart1"></div>
+							<div class="tabs-content__item" data-design="design name 2-2"><img src="img/pf-ill2.jpg" alt="img-gtlart2"></div>
+							<div class="tabs-content__item" data-design="design name 2-3"><img src="img/pf-ill3.jpg" alt="img-gtlart3"></div>
+							<div class="tabs-content__item" data-design="design name 2-4"><img src="img/pf-ill4.jpg" alt="img-gtlart4"></div>
+							<div class="tabs-content__item" data-design="design name 2-5"><img src="img/pf-ill5.jpg" alt="img-gtlart5"></div>
+							<div class="tabs-content__item" data-design="design name 2-6"><img src="img/pf-ill6.jpg" alt="img-gtlart6"></div>
+							<div class="tabs-content__item" data-design="design name 2-7"><img src="img/pf-ill7.jpg" alt="img-gtlart7"></div>
+							<div class="tabs-content__item" data-design="design name 2-8"><img src="img/pf-ill8.jpg" alt="img-gtlart8"></div>
+						</div>
+					</div>
+					<div class="tabs-content">
+						<div class="tabs-container">
+							<div class="tabs-content__item" data-design="design name 3-1"><img src="img/pf-dig1.jpg" alt="img-gtlart1"></div>
+							<div class="tabs-content__item" data-design="design name 3-2"><img src="img/pf-dig2.jpg" alt="img-gtlart2"></div>
+							<div class="tabs-content__item" data-design="design name 3-3"><img src="img/pf-dig3.jpg" alt="img-gtlart3"></div>
+							<div class="tabs-content__item" data-design="design name 3-4"><img src="img/pf-dig4.jpg" alt="img-gtlart4"></div>
+							<div class="tabs-content__item" data-design="design name 3-5"><img src="img/pf-dig5.jpg" alt="img-gtlart5"></div>
+							<div class="tabs-content__item" data-design="design name 3-6"><img src="img/pf-dig6.jpg" alt="img-gtlart6"></div>
+							<div class="tabs-content__item" data-design="design name 3-7"><img src="img/pf-dig7.jpg" alt="img-gtlart7"></div>
+							<div class="tabs-content__item" data-design="design name 3-8"><img src="img/pf-dig8.jpg" alt="img-gtlart8"></div>
+						</div>
+					</div>
+					<div class="tabs-content">
+						<div class="tabs-container">
+							<div class="tabs-content__item" data-design="design name 4-1"><img src="img/pf-web1.jpg" alt="img-gtlart1"></div>
+							<div class="tabs-content__item" data-design="design name 4-2"><img src="img/pf-web2.jpg" alt="img-gtlart2"></div>
+							<div class="tabs-content__item" data-design="design name 4-3"><img src="img/pf-web3.jpg" alt="img-gtlart3"></div>
+							<div class="tabs-content__item" data-design="design name 4-4"><img src="img/pf-web4.jpg" alt="img-gtlart4"></div>
+							<div class="tabs-content__item" data-design="design name 4-5"><img src="img/pf-web5.jpg" alt="img-gtlart5"></div>
+							<div class="tabs-content__item" data-design="design name 4-6"><img src="img/pf-web6.jpg" alt="img-gtlart6"></div>
+							<div class="tabs-content__item" data-design="design name 4-7"><img src="img/pf-web7.jpg" alt="img-gtlart7"></div>
+							<div class="tabs-content__item" data-design="design name 4-8"><img src="img/pf-web8.jpg" alt="img-gtlart8"></div>
+						</div>
+					</div>
+				</div>
+		</section>
+		<div class="scroll-bar-red"></div>
+		<section id="features">
+			<div class="container">
+				<div class="row features-heading text-center">
+					<div class="col">
+						<h2>our <span>product features</span></h2>
+						<p>Lorem ipsum dolor sit amet, consectetur <span>adipisicing elit.</span> Porro tenetur unde, nemo, hic nesciunt dolorum molestias iste ratione itaque debitis?</p>
+					</div>
+				</div>
+				<div class="row text-center">
+						<div class="col-12 col-lg-4">
+							<div class="feature-list">
+								<div class="feature">
+									<p>unlimited color options</p>
+									<div class="hex-little">
+										<svg height="33" width="36">
+											<polygon points="1 16, 10 1, 26 1, 36 16, 26 32, 10 32" stroke-width="1px">
+		        						</svg>
+		        						<span class="icon-check2"></span>
+	        						</div>
+								</div>
+								<div class="feature">
+									<p>outstanding support</p>
+									<div class="hex-little">
+										<svg height="33" width="36">
+											<polygon points="1 16, 10 1, 26 1, 36 16, 26 32, 10 32" stroke-width="1px">
+		        						</svg>
+		        						<span class="icon-check2"></span>
+	        						</div>
+								</div>
+								<div class="feature">
+									<p>retina ready</p>
+									<div class="hex-little">
+										<svg height="33" width="36">
+											<polygon points="1 16, 10 1, 26 1, 36 16, 26 32, 10 32" stroke-width="1px">
+		        						</svg>
+		        						<span class="icon-check2"></span>
+	        						</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-12 col-lg-4 text-center">
+							<img class="img-fluid" src="img/ipad1.png">
+							<div class="img-footer">
+								<button class="btn">free pds</button>
+							</div>
+							<div class="img-bg"></div>
+						</div>
+						<div class="col-12 col-lg-4">
+							<div class="feature-list feature-list2">
+								<div class="feature">
+									<p>unlimited color options</p>
+									<div class="hex-little">
+										<svg height="33" width="36">
+											<polygon points="1 16, 10 1, 26 1, 36 16, 26 32, 10 32" stroke-width="1px">
+	        							</svg>
+	        							<span class="icon-check2"></span>
+	        						</div>
+								</div>
+								<div class="feature">
+									<p>outstanding support</p>
+									<div class="hex-little">
+										<svg height="33" width="36">
+											<polygon points="1 16, 10 1, 26 1, 36 16, 26 32, 10 32" stroke-width="1px">
+		        						</svg>
+		        						<span class="icon-check2"></span>
+	        						</div>
+								</div>
+								<div class="feature">
+									<p>retina ready</p>
+									<div class="hex-little">
+										<svg height="33" width="36">
+											<polygon points="1 16, 10 1, 26 1, 36 16, 26 32, 10 32" stroke-width="1px">
+		        						</svg>
+		        						<span class="icon-check2"></span>
+	        						</div>
+								</div>
+							</div>
+						</div>
+					</div>
 			</div>
 		</section>
 		<section id="clients">
 			<div class="container">
-				
+				<div class="row text-center">
+					<div class="col">
+						<h2>our <span>clients</span></h2>
+						<p>Lorem ipsum dolor sit amet, consectetur <span>adipisicing elit.</span> Porro tenetur unde, nemo, hic nesciunt dolorum molestias iste ratione itaque debitis?</p>
+					</div>
+				</div>
+				<div class="row clients-content">
+					<div class="col-12 col-lg-6 clients-feedback text-center">
+						<h3>happy clients say</h3>
+						<div class="fb-slider">
+							<div class="fb-slide">
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, quasi.</p>
+								<div class="author">
+									<svg>
+									<pattern id="fb1"
+									    width="100%" height="100%">
+									    <image xlink:href="img/fb-1.jpg" width="138" height="90"/>
+									</pattern>
+									<polygon fill="url(#fb1)"
+									points="1 45, 30 1, 80 1, 110 45, 80 90, 30 90"
+									transform="translate(90, 30)"/>
+									</svg>
+									<h4 class="author-name">Anonimous</h4>
+								</div>
+							</div>
+							<div class="fb-slide">
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui, animi tempore? Voluptas ullam enim necessitatibus. Blanditiis, cupiditate, quisquam! </p>
+								<div class="author">
+									<svg>
+									<pattern id="fb2"
+									    width="120%" height="120%">
+									    <image xlink:href="img/fb-2.jpg" width="120" height="100"/>
+									</pattern>
+									<polygon fill="url(#fb2)"
+									points="1 45, 30 1, 80 1, 110 45, 80 90, 30 90"
+									transform="translate(90, 30)"/>
+									</svg>
+									<h4 class="author-name">amr srour</h4>
+								</div>
+							</div>
+							<div class="fb-slide">
+								<p>Not bad!</p>
+								<div class="author">
+									<svg>
+									<pattern id="fb3"
+									    width="100%" height="100%">
+									    <image xlink:href="img/fb-3.jpg" width="109" height="106"/>
+									</pattern>
+									<polygon fill="url(#fb3)"
+									points="1 45, 30 1, 80 1, 110 45, 80 90, 30 90"
+									transform="translate(90, 30)"/>
+									</svg>
+									<h4 class="author-name">bill gates</h4>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-12 col-lg-6 envanto">
+						<div class="envanto-links">
+							<div class="envanto-links__item">
+								<a target="blank" href="https://graphicriver.net">graphicriver</a>
+							</div>
+							<div class="envanto-links__item">
+								<a target="blank" href="https://videohive.net/">videohive</a>
+							</div>
+							<div class="envanto-links__item">
+								<a target="blank" href="https://photodune.net/">photodune</a>
+							</div>
+							<div class="envanto-links__item">
+								<a target="blank" href="https://codecanyon.net">codecanyon</a>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</section>
+		<div class="scroll-bar-red"></div>
 		<section id="team">
 			<div class="container">
-				
+				<div class="row text-center">
+					<div class="col">
+						<h2>our <span>teamwork</span></h2>
+						<p>Lorem ipsum dolor sit amet, consectetur <span>adipisicing elit.</span> Porro tenetur unde, nemo, hic nesciunt dolorum molestias iste ratione itaque debitis?</p>
+					</div>
+				</div>
+				<div class="row team">
+					<div class="col-12 col-md-6 col-lg-3">
+						<div class="teammate">
+							<div class="teammate-photo">
+								<img class="img-fluid" src="img/teammate1.jpg" alt="">
+								<div class="photo-cover">
+									<div class="hex-little">
+										<a href="#">
+										<svg height="33" width="36">
+											<polygon points="1 16, 10 1, 26 1, 36 16, 26 32, 10 32" stroke-width="1px">
+		        						</svg>
+		        						<span class="icon-facebook-f"></span>
+		        						</a>
+	        						</div>
+	        						<div class="hex-little">
+										<a href="#">
+										<svg height="33" width="36">
+											<polygon points="1 16, 10 1, 26 1, 36 16, 26 32, 10 32" stroke-width="1px">
+		        						</svg>
+		        						<span class="icon-twitter"></span>
+		        						</a>
+	        						</div>
+	        						<div class="hex-little">
+	        							<a href="#">
+										<svg height="33" width="36">
+											<polygon points="1 16, 10 1, 26 1, 36 16, 26 32, 10 32" stroke-width="1px">
+		        						</svg>
+		        						<span class="icon-google-plus-g"></span>
+		        						</a>
+	        						</div>
+								</div>
+							</div>
+							<h4 class="teammate-name">Bruce wayne</h4>
+							<p class="position">Batman</p>
+						</div>
+					</div>
+					<div class="col col-md-6 col-lg-3">
+						<div class="teammate">
+							<div class="teammate-photo">
+								<img class="img-fluid" src="img/teammate2.jpg" alt="">
+								<div class="photo-cover">
+									<div class="hex-little">
+										<a href="#">
+										<svg height="33" width="36">
+											<polygon points="1 16, 10 1, 26 1, 36 16, 26 32, 10 32" stroke-width="1px">
+		        						</svg>
+		        						<span class="icon-facebook-f"></span>
+		        						</a>
+	        						</div>
+	        						<div class="hex-little">
+										<a href="#">
+										<svg height="33" width="36">
+											<polygon points="1 16, 10 1, 26 1, 36 16, 26 32, 10 32" stroke-width="1px">
+		        						</svg>
+		        						<span class="icon-twitter"></span>
+		        						</a>
+	        						</div>
+	        						<div class="hex-little">
+	        							<a href="#">
+										<svg height="33" width="36">
+											<polygon points="1 16, 10 1, 26 1, 36 16, 26 32, 10 32" stroke-width="1px">
+		        						</svg>
+		        						<span class="icon-google-plus-g"></span>
+		        						</a>
+	        						</div>
+								</div>
+							</div>
+							<h4 class="teammate-name">arm srour</h4>
+							<p class="position">Webdesigner</p>
+						</div>
+					</div>
+					<div class="col col-md-6 col-lg-3">
+						<div class="teammate">
+							<div class="teammate-photo">
+								<img class="img-fluid" src="img/teammate3.jpg" alt="">
+								<div class="photo-cover">
+									<div class="hex-little">
+										<a href="#">
+										<svg height="33" width="36">
+											<polygon points="1 16, 10 1, 26 1, 36 16, 26 32, 10 32" stroke-width="1px">
+		        						</svg>
+		        						<span class="icon-facebook-f"></span>
+		        						</a>
+	        						</div>
+	        						<div class="hex-little">
+										<a href="#">
+										<svg height="33" width="36">
+											<polygon points="1 16, 10 1, 26 1, 36 16, 26 32, 10 32" stroke-width="1px">
+		        						</svg>
+		        						<span class="icon-twitter"></span>
+		        						</a>
+	        						</div>
+	        						<div class="hex-little">
+	        							<a href="#">
+										<svg height="33" width="36">
+											<polygon points="1 16, 10 1, 26 1, 36 16, 26 32, 10 32" stroke-width="1px">
+		        						</svg>
+		        						<span class="icon-google-plus-g"></span>
+		        						</a>
+	        						</div>
+								</div>
+							</div>
+							<h4 class="teammate-name">sarah doe</h4>
+							<p class="position">Webdesigner</p>
+						</div>
+					</div>
+					<div class="col col-md-6 col-lg-3">
+						<div class="teammate">
+							<div class="teammate-photo">
+								<img class="img-fluid" src="img/teammate4.jpg" alt="">
+								<div class="photo-cover">
+									<div class="hex-little">
+										<a href="#">
+										<svg height="33" width="36">
+											<polygon points="1 16, 10 1, 26 1, 36 16, 26 32, 10 32" stroke-width="1px">
+		        						</svg>
+		        						<span class="icon-facebook-f"></span>
+		        						</a>
+	        						</div>
+	        						<div class="hex-little">
+										<a href="#">
+										<svg height="33" width="36">
+											<polygon points="1 16, 10 1, 26 1, 36 16, 26 32, 10 32" stroke-width="1px">
+		        						</svg>
+		        						<span class="icon-twitter"></span>
+		        						</a>
+	        						</div>
+	        						<div class="hex-little">
+	        							<a href="#">
+										<svg height="33" width="36">
+											<polygon points="1 16, 10 1, 26 1, 36 16, 26 32, 10 32" stroke-width="1px">
+		        						</svg>
+		        						<span class="icon-google-plus-g"></span>
+		        						</a>
+	        						</div>
+								</div>
+							</div>
+							<h4 class="teammate-name">joht doe</h4>
+							<p class="position">Webdesigner</p>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="scroll-bar"></div>
+				</div>
+				<div class="row text-center">
+					<div class="col">
+						<h2>our <span>teamwork</span></h2>
+						<p>Lorem ipsum dolor sit amet, consectetur <span>adipisicing elit.</span> Porro tenetur unde, nemo, hic nesciunt dolorum molestias iste ratione itaque debitis?</p>
+					</div>
+				</div>
+				<div class="row skills">
+					<div class="col-8 skills-wrapper">
+						<div class="row">
+							<div class="col-6 col-lg-3">
+								<div class="skill">
+									<div class="circle">
+										<div class="circle-background">
+										</div>
+										<div class="circle-progress" style="width: 90%">
+										</div>
+										<div class="circle-inner">
+											<span>90</span>
+											%
+										</div>
+									</div>
+									<h4>photoshop</h4>
+									<p>Lorem ipsum dolor sit amet, consectetur.</p>
+								</div>
+							</div>
+							<div class="col-6 col-lg-3">
+								<div class="skill">
+									<div class="circle">
+										<div class="circle-background">
+										</div>
+										<div class="circle-progress" style="width: 80%">
+										</div>
+										<div class="circle-inner">
+											<span>80</span>
+											%
+										</div>
+									</div>
+									<h4>html</h4>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+								</div>
+							</div>
+							<div class="col-6 col-lg-3">
+								<div class="skill">
+									<div class="circle">
+										<div class="circle-background">
+										</div>
+										<div class="circle-progress" style="width: 70%">
+										</div>
+										<div class="circle-inner">
+											<span>70</span>
+											%
+										</div>
+									</div>
+									<h4>php</h4>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+								</div>
+							</div>
+							<div class="col-6 col-lg-3">
+								<div class="skill">
+									<div class="circle">
+										<div class="circle-background">
+										</div>
+										<div class="circle-progress" style="width: 90%">
+										</div>
+										<div class="circle-inner">
+											<span>90</span>
+											%
+										</div>
+									</div>
+									<h4>wordpress</h4>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</section>
 		<section id="services">
 			<div class="container">
-				
+				<div class="row text-center">
+					<div class="col">
+						<h2>our <span>services</span></h2>
+						<p>Lorem ipsum dolor sit amet, consectetur <span>adipisicing elit.</span> Porro tenetur unde, nemo, hic nesciunt dolorum molestias iste ratione itaque debitis?</p>
+					</div>
+				</div>
+				<div class="row services">
+					<div class="col-12 col-md-6 service">
+						<div class="service-header">
+							<svg height="59" width="68">
+								<polygon points="1 28, 18 1, 51 1, 68 28, 51 57, 18 57" fill="#a4a4a4">
+							</svg>
+							<h3>development</h3>
+							<span class="icon-code"></span>
+						</div>
+						<div class="service-content">
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam delectus, tempora reprehenderit in a nostrum est inventore non ut, hic maxime debitis repudiandae cum.</p>
+						</div>
+					</div>
+					<div class="col-12 col-md-6 service">
+						<div class="service-header">
+							<svg height="59" width="68">
+								<polygon points="1 28, 18 1, 51 1, 68 28, 51 57, 18 57" fill="#a4a4a4">
+							</svg>
+							<h3>html / css</h3>
+							<span class="icon-html5"></span>
+						</div>
+						<div class="service-content">
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta id, quaerat nemo delectus, perspiciatis, est, quo nisi vero dolor a aut. Natus, laboriosam, voluptatum?</p>
+						</div>
+					</div>
+					<div class="col-12 col-md-6 service">
+						<div class="service-header">
+							<svg height="59" width="68">
+								<polygon points="1 28, 18 1, 51 1, 68 28, 51 57, 18 57" fill="#a4a4a4">
+							</svg>
+							<h3>wordpress</h3>
+							<span class="icon-wordpress-simple"></span>
+						</div>
+						<div class="service-content">
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur magnam consequatur reprehenderit, nisi praesentium nam. Perferendis aliquam sit sapiente libero veniam, modi iusto possimus.</p>
+						</div>
+					</div>
+					<div class="col-12 col-md-6 service">
+						<div class="service-header">
+							<svg height="59" width="68">
+								<polygon points="1 28, 18 1, 51 1, 68 28, 51 57, 18 57" fill="#a4a4a4">
+							</svg>
+							<h3>applications</h3>
+							<span class="icon-tablet"></span>
+						</div>
+						<div class="service-content">
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus dolores amet excepturi veritatis, aliquam rem, dolore, voluptas sequi sapiente optio doloremque earum magnam voluptatum.</p>
+						</div>
+					</div>
+					<div class="col-12 col-md-6 service">
+						<div class="service-header">
+							<svg height="59" width="68">
+								<polygon points="1 28, 18 1, 51 1, 68 28, 51 57, 18 57" fill="#a4a4a4">
+							</svg>
+							<h3>UI / UX design</h3>
+							<span class="icon-pencil-alt"></span>
+						</div>
+						<div class="service-content">
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt, voluptates, consectetur? Consectetur doloremque doloribus voluptatem iste nisi tenetur, dignissimos, nam impedit optio error excepturi.</p>
+						</div>
+					</div>
+					<div class="col-12 col-md-6 service">
+						<div class="service-header">
+							<svg height="59" width="68">
+								<polygon points="1 28, 18 1, 51 1, 68 28, 51 57, 18 57" fill="#a4a4a4">
+							</svg>
+							<h3>responsive layout</h3>
+							<span class="icon-laptop"></span>
+						</div>
+						<div class="service-content">
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur dolorum cum ullam. Numquam hic repellendus excepturi fuga, maiores tenetur dignissimos sapiente id sunt eum.</p>
+						</div>
+					</div>
+				</div>
 			</div>
 		</section>
+		<div class="scroll-bar-red"></div>
+		<section id="bestseller">
+			<div class="container">
+				<div class="row text-center">
+					<div class="col">
+						<h2>Plan<span>Best seller</span></h2>
+						<p>Lorem ipsum dolor sit amet, consectetur <span>adipisicing elit.</span> Porro tenetur unde, nemo, hic nesciunt dolorum molestias iste ratione itaque debitis?</p>
+					</div>
+				</div>
+				<div class="row seller-cards">
+					<div class="col-12 col-md-6 col-lg-3 seller-card">
+						<h3>reseller</h3>
+						<div>
+							<h2>199$<sub>year</sub></h2>
+							<p>CPU E3-1230 3.3GHz 8MB-V2</p>
+							<p>HARD 500GB SATA 7200 RPM</p>
+							<p>RAM 8GB DDR3 1333MHZ ECC</p>
+							<p>Traffic 10 TB</p>
+							<p>Connection 100 MB</p>
+							<p>5IP</p>
+							<p>
+								<button>order now</button>
+							</p>
+						</div>
+					</div>
+					<div class="col-12 col-md-6 col-lg-3 seller-card">
+						<h3>reseller</h3>
+						<div>
+							<h2>199$<sub>year</sub></h2>
+							<p>CPU E3-1230 3.3GHz 8MB-V2</p>
+							<p>HARD 500GB SATA 7200 RPM</p>
+							<p>RAM 8GB DDR3 1333MHZ ECC</p>
+							<p>Traffic 10 TB</p>
+							<p>Connection 100 MB</p>
+							<p>5IP</p>
+							<p>
+								<button>order now</button>
+							</p>
+						</div>
+					</div>
+					<div class="col-12 col-md-6 col-lg-3 seller-card">
+						<h3>reseller</h3>
+						<div>
+							<h2>199$<sub>year</sub></h2>
+							<p>CPU E3-1230 3.3GHz 8MB-V2</p>
+							<p>HARD 500GB SATA 7200 RPM</p>
+							<p>RAM 8GB DDR3 1333MHZ ECC</p>
+							<p>Traffic 10 TB</p>
+							<p>Connection 100 MB</p>
+							<p>5IP</p>
+							<p>
+								<button>order now</button>
+							</p>
+						</div>
+					</div>
+					<div class="col-12 col-md-6 col-lg-3 seller-card">
+						<h3>reseller</h3>
+						<div>
+							<h2>199$<sub>year</sub></h2>
+							<p>CPU E3-1230 3.3GHz 8MB-V2</p>
+							<p>HARD 500GB SATA 7200 RPM</p>
+							<p>RAM 8GB DDR3 1333MHZ ECC</p>
+							<p>Traffic 10 TB</p>
+							<p>Connection 100 MB</p>
+							<p>5IP</p>
+							<p>
+								<button>order now</button>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section id="tweetter">
+			<div class="container">
+				<div class="row">
+					<div class="col-7 text-center last-tweet">
+						<span class="icon-twitter"></span>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae facere quam esse aperiam quis, minima id corporis, illum harum laborum excepturi sed, soluta dolor a.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+		<div class="scroll-bar-red"></div>
 		<section id="blog">
 			<div class="container">
-				
+				<div class="row text-center">
+					<div class="col">
+						<h2>our <span>teamwork</span></h2>
+						<p>Lorem ipsum dolor sit amet, consectetur <span>adipisicing elit.</span> Porro tenetur unde, nemo, hic nesciunt dolorum molestias iste ratione itaque debitis?</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="offset-1 col-10 blog-slider">
+						<div class="blog-slider__item">
+							<div class="blog-slider__item-image">
+								<img src="img/blog1.jpg" alt="blog-picture1">
+							</div>
+							<div class="blog-slider__item-text">
+								<h3>Lorem ipsum dolor sit amet, consectetur.1</h3>
+								<div class="info">
+									<div class="account">
+										<span class="icon-user-alt"></span>
+										<i>admin</i>
+									</div>
+									<div class="comments">
+										<span class="icon-comment"></span>
+										<i>1205</i>
+									</div>
+									<div class="views">
+										<span class="icon-eye"></span>
+										<i>1205</i>
+									</div>
+								</div>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem cupiditate asperiores minima. Ullam repellat ab magnam pariatur laborum eos enim. Facere amet quibusdam, aspernatur nihil ut dignissimos qui cumque! Eos!</p>
+								<button class="btn">view more</button>
+							</div>	
+						</div>
+						<div class="blog-slider__item"><div class="blog-slider__item-image">
+								<img src="img/blog2.jpg" alt="blog-picture2">
+							</div>
+							<div class="blog-slider__item-text">
+								<h3>Lorem ipsum dolor sit amet, consectetur.2</h3>
+								<div class="info">
+									<div class="account">
+										<span class="icon-user-alt"></span>
+										<i>admin</i>
+									</div>
+									<div class="comments">
+										<span class="icon-comment"></span>
+										<i>1205</i>
+									</div>
+									<div class="views">
+										<span class="icon-eye"></span>
+										<i>1205</i>
+									</div>
+								</div>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis officia veniam, aliquid, fugiat odit excepturi repellat nobis non accusantium blanditiis. Nulla pariatur laborum explicabo magni.</p>
+								<button class="btn">view more</button>
+							</div>	
+						</div>
+						<div class="blog-slider__item"><div class="blog-slider__item-image">
+								<img src="img/blog1.jpg" alt="blog-picture3">
+							</div>
+							<div class="blog-slider__item-text">
+								<h3>Lorem ipsum dolor sit amet, consectetur.3</h3>
+								<div class="info">
+									<div class="account">
+										<span class="icon-user-alt"></span>
+										<i>admin</i>
+									</div>
+									<div class="comments">
+										<span class="icon-comment"></span>
+										<i>1205</i>
+									</div>
+									<div class="views">
+										<span class="icon-eye"></span>
+										<i>1205</i>
+									</div>
+								</div>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem cupiditate asperiores minima. Ullam repellat ab magnam pariatur laborum eos enim. Facere amet quibusdam, aspernatur nihil ut dignissimos qui cumque! Eos!</p>
+								<button class="btn">view more</button>
+							</div>	
+						</div>
+						<div class="blog-slider__item"><div class="blog-slider__item-image">
+								<img src="img/blog2.jpg" alt="blog-picture4">
+							</div>
+							<div class="blog-slider__item-text">
+								<h3>Lorem ipsum dolor sit amet, consectetur.4</h3>
+								<div class="info">
+									<div class="account">
+										<span class="icon-user-alt"></span>
+										<i>admin</i>
+									</div>
+									<div class="comments">
+										<span class="icon-comment"></span>
+										<i>1205</i>
+									</div>
+									<div class="views">
+										<span class="icon-eye"></span>
+										<i>1205</i>
+									</div>
+								</div>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, commodi, adipisci? Deleniti eius ullam odio optio rerum sequi ipsum nostrum, recusandae tempora! Repudiandae culpa labore ipsa quisquam.</p>
+								<button class="btn">view more</button>
+							</div>	
+						</div>
+						<div class="blog-slider__item"><div class="blog-slider__item-image">
+								<img src="img/blog1.jpg" alt="blog-picture5">
+							</div>
+							<div class="blog-slider__item-text">
+								<h3>Lorem ipsum dolor sit amet, consectetur.5</h3>
+								<div class="info">
+									<div class="account">
+										<span class="icon-user-alt"></span>
+										<i>admin</i>
+									</div>
+									<div class="comments">
+										<span class="icon-comment"></span>
+										<i>1205</i>
+									</div>
+									<div class="views">
+										<span class="icon-eye"></span>
+										<i>1205</i>
+									</div>
+								</div>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati quod, perferendis autem similique in dolore accusantium enim tempore earum asperiores quasi aliquid. Sunt, doloribus, et.</p>
+								<button class="btn">view more</button>
+							</div>	
+						</div>
+					</div>
+				</div>
 			</div>
 		</section>
+		<section id="follow">
+			<div class="container">
+				<div class="row text-center">
+					<div class="col">
+						<h2>Follow <span>Creativia</span></h2>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col text-center">
+						<div class="follow__item">
+							<div class="hexagon d-flex justify-content-center">
+								<a href="#">
+									<svg height="77" width="88">
+										<polygon points="1 38, 22 1, 66 1, 88 38, 66 76, 22 76" stroke-width="1px">
+			        				</svg>
+		        					<span class="icon-facebook-f"></span>
+	        					</a>
+	        				</div>
+	        				<h3>20000</h3>
+        				</div>
+        				<div class="follow__item">
+							<div class="hexagon d-flex justify-content-center">
+								<a href="#">
+									<svg height="77" width="88">
+										<polygon points="1 38, 22 1, 66 1, 88 38, 66 76, 22 76" stroke-width="1px">
+			        				</svg>
+		        					<span class="icon-twitter"></span>
+	        					</a>
+	        				</div>
+	        				<h3>99000</h3>
+        				</div>
+        				<div class="follow__item">
+							<div class="hexagon d-flex justify-content-center">
+								<a href="#">
+									<svg height="77" width="88">
+										<polygon points="1 38, 22 1, 66 1, 88 38, 66 76, 22 76" stroke-width="1px">
+			        				</svg>
+		        					<span class="icon-pinterest-p"></span>
+	        					</a>
+	        				</div>
+	        				<h3>5000</h3>
+        				</div>
+        				<div class="follow__item">
+							<div class="hexagon d-flex justify-content-center">
+								<a href="#">
+									<svg height="77" width="88">
+										<polygon points="1 38, 22 1, 66 1, 88 38, 66 76, 22 76" stroke-width="1px">
+			        				</svg>
+		        					<span class="icon-google-plus-g"></span>
+	        					</a>
+	        				</div>
+	        				<h3>200</h3>
+        				</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<div class="scroll-bar-red"></div>
 		<section id="contact">
 			<div class="container">
-				
+				<div class="row text-center">
+					<div class="col">
+						<h2>Find us <span>here</span></h2>
+						<p>Lorem ipsum dolor sit amet, consectetur <span>adipisicing elit.</span> Porro tenetur unde, nemo, hic nesciunt dolorum molestias iste ratione itaque debitis?</p>
+					</div>
+				</div>
 			</div>
+			<div id="map"></div>
+			<form  id="form" method="post">
+				<fieldset>
+					<legend>send message</legend>
+					<input type="text" required placeholder="Name">
+					<input type="email" required placeholder="Email">
+					<input type="text" required placeholder="subject">
+					<textarea cols="40" rows="3" maxlength="120" required></textarea>
+					<input type="submit" value="submit">
+				</fieldset>
+			</form>
 		</section>
 	</main>
-	<i class="fas fa-chevron-left slick-prev"></i>
 	<footer>
+		<h3>Creativia 2018</h3>
+		<p>Designed by Amr Srour</p>
 	</footer>
 
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 <script type="text/javascript" src="js/jquery-migrate-3.0.1.js"></script>
 <script type="text/javascript" src="slick/slick.min.js"></script>
 <script type="text/javascript" src="js/script.js"></script>
+<script>
+      function initMap() {
+        var element = document.getElementById('map');
+        var options = {
+          center: {lat: 60.018078, lng: 30.427000},
+          zoom: 14
+        };
+        var map = new google.maps.Map(element, options);
+        var marker = new google.maps.Marker({
+        	position: {lat: 60.012985, lng: 30.397538},
+        	map: map
+        });
+        var infowindow = new google.maps.InfoWindow({
+        	content: '<h4>Sergei Kalachev</h4><h6 style="color: #a4a4a4">Beginner front-end developer</h6><p>Saint-Petersburg<br/>Phone: +7 921 847 37 39<br/>Email: <a href="mailto:sk-v-815@inbox.ru">sk-v-815@inbox.ru</a></p>'
+        });
+        infowindow.open(map, marker);
+        marker.addListener('click', function() {
+	    infowindow.open(map, marker);
+		});
+      }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDFVf7yLvl8gchiDYbni-13oW7cQ3I-GlM&callback=initMap"
+    async defer></script>
 </body>
 </html>
