@@ -11,6 +11,14 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+	<div class="loaderArea">
+		<div class="loader">
+			<h3>Loading</h3>
+			<div class="dot"></div>
+			<div class="dot"></div>
+			<div class="dot"></div>
+		</div>
+	</div>
 	<header id="header">
 		<div class="header-top">
 			<div class="container">
@@ -974,6 +982,14 @@
 
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 <script type="text/javascript" src="js/jquery-migrate-3.0.1.js"></script>
+<script>
+  $(window).on('load', function () {
+    $preloader = $('.loaderArea'),
+      $loader = $preloader.find('.loader');
+    $loader.fadeOut();
+    $preloader.delay(350).fadeOut('slow');
+  });
+</script>
 <script type="text/javascript" src="slick/slick.min.js"></script>
 <script type="text/javascript" src="js/script.js"></script>
 <script>
