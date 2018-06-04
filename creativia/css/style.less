@@ -5,7 +5,7 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:500,700');
 
 
-/*  ##### variables #####  */
+/*  ##### color variables #####  */
 @red: #ff0036;
 @lightgray: #a4a4a4;
 @gray: #505050;
@@ -27,9 +27,9 @@
 	z-index: 100000;
 }
 .loader {
-	height: 100px;
+	height: 80px;
 	width: 220px;
-	margin-top: -50px;
+	margin-top: -40px;
 	background-color: @dark;
 	border-radius: 15px;
 	border: 1px solid #fff;
@@ -39,7 +39,7 @@
 	h3 {
 		display: inline-block;
 		color: #fff;
-		line-height: 100px;
+		line-height: 80px;
 		margin: 0 20px 0 20px;
 	}
 	.dot {
@@ -49,34 +49,31 @@
 		margin: 0px 3px;
 		border-radius: 50%;
 		background-color: #fff;
-		opacity: 0.1;
+		opacity: 0.3;
 	}
 }
-.dot:nth-child(0) {
-	animation: animate 1.5s infinite linear;
+.dot:nth-child(2) {
+	animation: blinking 1.5s infinite linear;
 	animation-delay: 0s;
 }
-.dot:nth-child(1) {
-	animation: animate 1.5s infinite linear;
+.dot:nth-child(3) {
+	animation: blinking 1.5s infinite linear;
 	animation-delay: 0.5s;
 }
-.dot:nth-child(2) {
-	animation: animate 1.5s infinite linear;
+.dot:nth-child(4) {
+	animation: blinking 1.5s infinite linear;
 	animation-delay: 1s;
 }
 
-@keyframes animate {
+@keyframes blinking {
   0% {
-    opacity: 0.1;
+    opacity: 0.3;
   }
-    33% {
+    33.333333% {
     opacity: 1;
   }
-    66% {
-    opacity: 0.1;
-  }
-  100% {
-    opacity: 0.1;
+    66.666666% {
+    opacity: 0.3;
   }
 }
 /*  ##### common #####  */
@@ -84,19 +81,19 @@
 html {
 	background-color: silver;
 	font-family: 'Lato', sans-serif;
-	font-size: 16px;
+	font-size: 100%;
 	line-height: 22px;
 	font-weight: bold;
 	color: @gray;
 }
 h2 {
 	font-family: 'Raleway', sans-serif;
-	font-size: 30px;
+	font-size: 190%;
 	font-weight: bold;
 }
 h3 {
 	font-family: 'Raleway', sans-serif;
-	font-size: 24px;
+	font-size: 160%;
 	font-weight: normal;
 }
 a:hover {
@@ -111,7 +108,7 @@ section {
 .btn {
 	border-radius: 0;
 	font-family: 'Raleway', sans-serif;
-	font-size: 24px;
+	font-size: 150%;
 	color: #fff;
 	background-color: @dark;
 	text-transform: uppercase;
@@ -159,7 +156,7 @@ section {
 	text-transform: capitalize;
 	-op
 	color: #fff;
-	font-size: 36px;
+	font-size: 38px;
 }
 .header-top {
 	height: 70px;
@@ -173,7 +170,7 @@ section {
 	.main-menu {
 		ul {
 			font-family: 'Raleway', sans-serif;
-			font-size: 16px;
+			font-size: 100%;
 			margin: 0;
 		}
 		.main-menu__item {
@@ -347,7 +344,7 @@ section {
 					position: absolute;
 					top: 50%;
 					left: 50%;
-					font-size: 32px;
+					font-size: 200%;
 					color: @dark;
 					margin-left: -13px;
 					margin-top: -13px;
@@ -416,7 +413,7 @@ section {
 					right: 0;
 					text-align: center;
 					color: #fff;
-					font-size: 20px;
+					font-size: 120%;
 					padding-top: 180px;
 					background-color: rgba(0, 0, 0, 0.9);
 				}
@@ -429,7 +426,7 @@ section {
 					right: 0;
 					text-align: center;
 					color: #fff;
-					font-size: 75px;
+					font-size: 46px;
 					padding-top: 80px;
 				}
 				&:nth-child(2n+1) {
@@ -639,7 +636,7 @@ section {
 					display: block;
 					line-height: 140px;
 					width: 100%;
-					font-size: 24px;
+					font-size: 150%;
 					color: @darkgray;
 					padding-left: 64px;
 					position: relative;
@@ -781,7 +778,7 @@ section {
 				background-color: white;
 				border-radius: 50%;
 				font-family: 'Lato', sans-serif;
-				font-size: 40px;
+				font-size: 230%;
 			}
 		}
 		h4 {
@@ -790,7 +787,7 @@ section {
 		}
 		p {
 			color: @gray;
-			font-size: 14px;
+			font-size: 90%;
 		}
 	}
 }
@@ -880,12 +877,12 @@ section {
 			}
 			h2 {
 				font-family: 'Lato', sans-serif;
-				font-size: 40px;
+				font-size: 220%;
 				background-color: @lightgray;
 				margin: 0;
 				padding: 10px 5px;
 				sub {
-					font-size: 16px;
+					font-size: 100%;
 					font-weight: normal;
 				}
 			}
@@ -1021,7 +1018,7 @@ section {
 					overflow: hidden;
 				}
 				button {
-					font-size: 20px;
+					font-size: 120%;
 				}
 			}
 		}
@@ -1050,7 +1047,7 @@ section {
 				top: 50%;
 				left: 50%;
 				margin-top: -16px;
-				font-size: 32px;
+				font-size: 250%;
 			}
 			.icon-facebook-f {
 				margin-left: -10px;
