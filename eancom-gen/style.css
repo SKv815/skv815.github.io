@@ -1,0 +1,274 @@
+/* ##### common ##### */
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+	font-family: Arial, sans-serif;
+	font-size: 0.9rem;
+	color: #222;
+}
+.cont {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	width: 100%;
+}
+.col {
+	flex-basis: 100%;
+}
+.col-2 {
+	flex-basis: 50%;
+}
+.col-4 {
+	flex-basis: 25%;
+}
+input {
+	border-radius: 5px;
+	padding: 0 5px;
+}
+select {
+	border-radius: 5px;
+	background-color: silver;
+	min-width: 57%;
+}
+body {
+	height: 100vh;
+}
+.visible {
+	visibility: visible;
+}
+.hidden {
+	visibility: hidden;
+}
+/* #################### */
+
+/* ##### main screen layout ##### */
+header {
+	height: 5%;
+	padding: 1px 40px;
+	background: gray;
+}
+h1{
+	font-size: 1.2rem;
+}
+
+main {
+	height: 92%;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+.half-screen {
+	display: flex;
+	justify-content: center;
+	flex: 1 1 50%;
+	background-color: silver;
+	padding: 3px;
+	align-self: stretch;
+	position: relative;
+}
+.left {
+	flex: 1 1 50%;
+	padding: 15px 40px;
+	overflow-y: scroll;
+	background: #fff;
+}
+.left * {
+	color: #1A2942;
+}
+.left h5 {
+	font-size: 1.2rem;
+	margin: 0 auto 10px;
+}
+.right {
+	flex: 1 1 50%;
+	padding: 15px 28px;
+	overflow-y: scroll;
+}
+.right div {
+	display: inline;
+}
+.right p.item-name {
+	display: inline-block;
+	text-transform: none;
+	color: inherit;
+}
+footer {
+	position: fixed;
+	bottom: 0;
+	width: 100vw;
+	height: 3%;
+	padding: 1px 40px;
+	background: transparent;
+}
+/* #################### */
+
+/* ##### main inputs style ##### */
+.radio-item {
+	width: 80%;
+}
+
+label[for="ordrsp"]::before {
+	content: "ordrsp";
+}
+label[for="desadv"]::before {
+	content: "desadv";
+}
+label[for="recadv"]::before {
+	content: "recadv";
+}
+
+.radio-item label::before {
+	display: inline-block;
+	visibility: visible;
+	position: relative;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background-color: silver;
+	text-transform: uppercase;
+	text-align: center;
+	border-radius: 5px;
+	line-height: 150%;
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+.radio-item label:hover::before {
+	background-color: gray;
+	transition: all 0.2s ease;
+}
+.radio-item input:checked + label::before {
+	background-color: gray;
+	color: #fff;
+}
+.radio-item input {
+	visibility: hidden;
+}
+.radio-item label {
+	visibility: hidden;
+}
+.input-item {
+	margin-bottom: 10px;
+	font-size: 0;
+}
+.input-item label {
+	display: inline-block;
+	width: 40%;
+}
+.input-item input {
+	vertical-align: top;
+	box-sizing: border-box;
+	width: 57%;
+	height: 1.5rem;
+	margin-right: 3%;
+}
+.input-item select {
+	vertical-align: top;
+}
+/* #################### */
+
+/* ##### goods' specifications ##### */
+.goods-section {
+	padding-top: 0;
+
+}
+.item-number {
+	position: relative;
+	border-top: 1px solid silver;
+	padding-top: 1rem;
+	margin-top: 1rem;
+}
+
+.goods-section h6 {
+	display: inline-block;
+	position: absolute;
+	font-size: 1.1rem;
+	top: -1rem;
+	left: 2rem;
+	background-color: #fff;
+	color: #444;
+	padding: 5px;
+}
+
+.good-header {
+	margin-bottom: 10px;
+	font-size: 0;
+}
+.good-header label {
+	display: inline-block;
+	width: 20%;
+
+}
+.good-header input {
+	vertical-align: top;
+	box-sizing: border-box;
+	width: 78.5%;
+	height: 1.5rem;
+	margin-right: 1.5%;
+}
+
+
+
+/* #################### */
+
+/* ##### buttons ##### */
+.btn {
+	position: absolute;
+	right: 40px;
+	bottom: 40px;
+	padding: 10px 0;
+	width: 110px;
+	cursor: pointer;
+	text-transform: uppercase;
+	background-color: green;
+	color: white;
+	outline: none;
+	border: 1px solid #333;
+	border-radius: 8px;
+	box-shadow: 1px 1px 1px #333;
+	z-index: 100;
+}
+.btn:active {
+	box-shadow: -1px -1px 1px #333;
+	right: 39px;
+	bottom: 39px;
+}
+/* #################### */
+
+/* ##### code style ##### */
+#code {
+	background: #1A2942;
+	text-transform: uppercase;
+	color: white;
+}
+.brackets, .slash {
+	color: silver;
+}
+.tagname {
+	color: #1DAE19;
+	text-transform: uppercase;
+}
+.tab {
+	letter-spacing: 0.2rem;
+}
+/* #################### */
+
+
+/* ##### media ##### */
+@media screen and (max-width: 1000px) {
+	.col-2 {
+		flex-basis: 100%;
+	}
+	.col-4 {
+		flex-basis: 50%;
+	}
+	.pos-name label {
+		width: 100%;
+	}
+	.pos-name input {
+		width: 97%;
+	}
+}
