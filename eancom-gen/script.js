@@ -1,4 +1,7 @@
 window.onload = function() {
+// #####-Achtung-#####
+//  This is Govnokod
+// ###################
 
 // html construction elements:
 	let lb = '</div><div class="brackets">&lt;</div><div class="tagname">',
@@ -223,11 +226,15 @@ window.onload = function() {
 		e3239Open = lb+'E3239'+rb,
 		e3239Close = clb+'E3239'+crb;
 
+	let loader = document.createElement('div');
+	loader.classList.add('loader');
+
 	let eancomCode = '',
 		bgmCode = '',
 		messageFunctionCode = '',
 		xmlDocument = '',
-		readyStatus = 0;
+		readyStatus = false;
+		readyStatus2 = false;
 
 	let radioButtons = document.getElementsByName('doctype'),
 		mainSection = document.getElementsByClassName('main-section')[0],
@@ -236,8 +243,21 @@ window.onload = function() {
 		btnCopy = document.getElementById('copy'),
 		btnNext = document.getElementById('next'),
 		goodsSection = document.getElementsByClassName('goods-section')[0],
-		positions;
+		positions,
+		distrGln = document.getElementById('gln-by'),
+		supplierGln = document.getElementById('gln-su'),
+		deliveryPointGln = document.getElementById('gln-dt');
 
+// Inputs trim
+	distrGln.addEventListener('input',function(){
+		this.value = this.value.replace(/[^-0-9]/g,'');
+	});
+	supplierGln.addEventListener('input',function(){
+		this.value = this.value.replace(/[^-0-9]/g,'');
+	});
+	deliveryPointGln.addEventListener('input',function(){
+		this.value = this.value.replace(/[^-0-9]/g,'');
+	});
 
 // 1st step - definition of document type
 	function getDocType () {
@@ -266,16 +286,16 @@ window.onload = function() {
 			messageFunctionCode = '9';
 		}
 		else {
-			alert('something went wrong');
+			error('something went wrong');
 		}
-		if (readyStatus == 0) {
-			readyStatus = 1;
+		if (readyStatus == false) {
+			readyStatus = true;
 		}
 	};
-	let i;
-	for (i = 0; i < radioButtons.length; i++) {
-		radioButtons[i].addEventListener('click', getDocType);
-		radioButtons[i].addEventListener('click', function(){
+	let r;
+	for (r = 0; r < radioButtons.length; r++) {
+		radioButtons[r].addEventListener('click', getDocType);
+		radioButtons[r].addEventListener('click', function(){
 			mainSection.classList.remove('hidden');
 			mainSection.classList.add('visible');
 		});
@@ -285,16 +305,32 @@ window.onload = function() {
 // 2nd step - exdanding form - adding posotions
 // elements for positions section
 	let pos1 = '<div class="good"><div class="cont"><div class="col item-number"><h6 class=>Item ',
-		pos2 = '</h6></div></div><div class="cont"><div class="col good-header"><label>Item name</label><input type="text" class="good-name" maxlength="50"></div><div class="col-2 input-item"><label>Order unit</label><select name="good-order-unit" class="good-order-unit"><option value="PA">Packages</option><option value="PCE">Pieces</option></select></div><div class="col-2 input-item"><label>GTIN code</label><input type="text" class="good-gtin" maxlength="20" placeholder="upc, ean or gtin"></div><div class="col-2 input-item"><label>Art.</label><input type="text" class="good-art"></div><div class="col-2 input-item"><label>Ordered</label><input type="text" class="good-ordered"></div><div class="col-2 input-item"><label>Confirmed</label><input type="text" class="good-confirmed"></div><div class="col-2 input-item"><label>Shipped</label><input type="text" class="good-shipped"></div><div class="col-2 input-item"><label>Pieces in package</label><input type="text" class="good-pceinpa"></div><div class="col-2 input-item"><label>Price without VAT</label><input type="text" class="good-pricenovat"></div><div class="col-2 input-item"><label>Price with VAT</label><input type="text" class="good-pricevat"></div><div class="col-2 input-item"><label>tax rate</label><input class="tax" type="number" class="good-vat" min="0" max="100" placeholder="20%"></div></div></div>';
-
-//building dom for positions
+		pos2 = '</h6></div></div><div class="cont"><div class="col good-header"><label>Item name</label><input type="text" class="good-name" maxlength="80"></div><div class="col-2 input-item"><label>Order unit</label><select name="good-order-unit" class="good-order-unit"><option value="PA">Packages</option><option value="PCE">Pieces</option></select></div><div class="col-2 input-item"><label>GTIN code</label><input type="text" class="good-gtin" maxlength="20" placeholder="upc, ean or gtin"></div><div class="col-2 input-item"><label>Art.</label><input type="text" class="good-art"></div><div class="col-2 input-item"><label>Ordered</label><input type="text" class="good-ordered"></div><div class="col-2 input-item"><label>Confirmed</label><input type="text" class="good-confirmed"></div><div class="col-2 input-item"><label>Shipped</label><input type="text" class="good-shipped"></div><div class="col-2 input-item"><label>Pieces in package</label><input type="text" class="good-pceinpa"></div><div class="col-2 input-item"><label>Price without VAT</label><input type="text" class="good-pricenovat"></div><div class="col-2 input-item"><label>Price with VAT</label><input type="text" class="good-pricevat"></div><div class="col-2 input-item"><label>tax rate</label><input class="tax" type="number" class="good-vat" min="0" max="100" placeholder="20%"></div></div></div>';
+	let extandActive = false;
 	next.addEventListener('click', function(){
-		positions = document.getElementById('positions').value;
-		goodsSection.innerHTML = '';
-		for (let i = 1; i <= positions; i++) {
-			goodsSection.innerHTML += pos1+i+pos2;
-		};
+		if (extandActive == false) {
+			extandActive = true;
+			positions = document.getElementById('positions').value;
+			goodsSection.innerHTML = '';
+			goodsSection.classList.remove('hidden');
+			goodsSection.classList.add('visible');
+			let e = 1;
+			let a = setInterval(extand, 70);
+			function extand() {
+				goodsSection.innerHTML += pos1+e+pos2;
+				e++;
+				if (e > positions) {
+					clearInterval(a);
+					extandActive = false;
+				}
+			};
+		}
+		else {
+			console.log('do not double-click on this button, please');
+		}
+		readyStatus2 = true;
 	});
+
 
 
 // get dynamic data from inputs
@@ -303,10 +339,10 @@ window.onload = function() {
 			docDate = document.getElementById('date-doc').value,
 			deliveryDate = document.getElementById('date-delivery').value,
 			orderDate = document.getElementById('date-order').value,
-			orderNumber = document.getElementById('order-number').value,
-			distrGln = document.getElementById('gln-by').value,
-			supplierGln = document.getElementById('gln-su').value,
-			deliveryPointGln = document.getElementById('gln-dt').value;
+			orderNumber = document.getElementById('order-number').value;
+		distrGln = document.getElementById('gln-by').value,
+		supplierGln = document.getElementById('gln-su').value,
+		deliveryPointGln = document.getElementById('gln-dt').value;
 
 		docDate = docDate.replace(/-/g,"");
 		orderDate = orderDate.replace(/-/g,"");
@@ -369,9 +405,9 @@ window.onload = function() {
 						lineValueVat = Math.round((goodPriceVatTrim*goodConfirmed[i].value)*100)/100;
 					sumClearArr.push(lineValueClear);
 					sumWithVatArr.push(lineValueVat);
-					sumClear += sumClearArr[i];
-					sumWithVat += sumWithVatArr[i];
-					sumVat = (Math.round((sumWithVat-sumClear)*100))/100;
+					sumClear += (Math.round((sumClearArr[i])*100))/100;
+					sumWithVat += (Math.round((sumWithVatArr[i])*100))/100;
+					sumVat = sumWithVat-sumClear;
 					
 					xmlDocumentGoodsLin = tab2+linOpen+br+tab3+e1082Open+(i+1)+e1082Close+tab3+e1229Open+'3'+e1229Close+tab3+c212Open+br+tab4+e7140Open+goodGtins[i].value+e7140Close+br+tab4+e7143Open+'srv'+e7143Close+tab3+c212Close+tab2+linClose;
 					xmlDocumentGoodsPia = tab2+piaOpen+br+tab3+e4347Open+'1'+e4347Close+br+tab3+c212Open+br+tab4+e7140Open+goodArts[i].value+e7140Close+tab4+e7143Open+'sa'+e7143Close+tab3+c212Close+tab2+piaClose;
@@ -393,10 +429,10 @@ window.onload = function() {
 						lineTax = Math.round((lineValueVat-lineValueClear)*100)/100;
 					sumClearArr.push(lineValueClear);
 					sumWithVatArr.push(lineValueVat);
-					sumClear += sumClearArr[i];
-					sumWithVat += sumWithVatArr[i];
-					sumVat = (Math.round((sumWithVat-sumClear)*100))/100;
-					xmlDocumentGoodsMoa = tab3+moaOpen+br+tab4+c516Open+br+tab5+e5025Open+'203'+e5025Close+tab5+e5004Open+lineValueClear+e5004Close+tab4+c516Close+tab3+moaClose+tab2+moaOpen+br+tab4+c516Open+br+tab5+e5025Open+'79'+e5025Close+tab5+e5004Open+lineValueVat+e5004Close+tab4+c516Close+tab3+moaClose+tab3+moaOpen+br+tab4+c516Open+br+tab5+e5025Open+'124'+e5025Close+tab5+e5004Open+lineTax+e5004Close+tab4+c516Close+tab3+moaClose+tab3+moaOpen+br+tab4+c516Open+br+tab5+e5025Open+'146'+e5025Close+tab5+e5004Open+goodPriceClear[i].value+e5004Close+tab4+c516Close+tab3+moaClose+tab3+moaOpen+br+tab4+c516Open+br+tab5+e5025Open+'XB5'+e5025Close+tab5+e5004Open+goodPriceVat[i].value+e5004Close+tab4+c516Close+tab3+moaClose;
+					sumClear += (Math.round((sumClearArr[i])*100))/100;
+					sumWithVat += (Math.round((sumWithVatArr[i])*100))/100;
+					sumVat = sumWithVat-sumClear;
+					xmlDocumentGoodsMoa = tab3+moaOpen+br+tab4+c516Open+br+tab5+e5025Open+'203'+e5025Close+tab5+e5004Open+lineValueClear+e5004Close+tab4+c516Close+tab3+moaClose+tab3+moaOpen+br+tab4+c516Open+br+tab5+e5025Open+'79'+e5025Close+tab5+e5004Open+lineValueVat+e5004Close+tab4+c516Close+tab3+moaClose+tab3+moaOpen+br+tab4+c516Open+br+tab5+e5025Open+'124'+e5025Close+tab5+e5004Open+lineTax+e5004Close+tab4+c516Close+tab3+moaClose+tab3+moaOpen+br+tab4+c516Open+br+tab5+e5025Open+'146'+e5025Close+tab5+e5004Open+goodPriceClear[i].value+e5004Close+tab4+c516Close+tab3+moaClose+tab3+moaOpen+br+tab4+c516Open+br+tab5+e5025Open+'XB5'+e5025Close+tab5+e5004Open+goodPriceVat[i].value+e5004Close+tab4+c516Close+tab3+moaClose;
 
 				};
 				xmlDocumentDtm = tab+dtmOpen+br+tab2+c507Open+br+tab3+e2005Open+'137'+e2005Close+tab3+e2380Open+docDate+e2380Close+tab3+e2379Open+'102'+e2379Close+tab2+c507Close+tab+dtmClose+tab+dtmOpen+br+tab2+c507Open+br+tab3+e2005Open+'17'+e2005Close+tab3+e2380Open+deliveryDate+e2380Close+tab3+e2379Open+'102'+e2379Close+tab2+c507Close+tab+dtmClose;
@@ -413,16 +449,16 @@ window.onload = function() {
 					xmlDocumentGoodsQty = tab3+qtyOpen+br+tab4+c186Open+br+tab5+e6063Open+'12'+e6063Close+tab5+e6060Open+(goodShipped[i].value+'.000')+e6060Close+tab5+e6411Open+goodOrderUnits[i].value+e6411Close+tab4+c186Close+tab3+qtyClose+tab3+qtyOpen+br+tab4+c186Open+br+tab5+e6063Open+'21'+e6063Close+tab5+e6060Open+(goodOrdered[i].value+'.000')+e6060Close+tab5+e6411Open+goodOrderUnits[i].value+e6411Close+tab4+c186Close+tab3+qtyClose;
 					xmlDocumentGoodsAliDtmFtx = tab3+aliOpen+br+tab4+e3239Open+'RU'+e3239Close+tab3+aliClose+tab3+dtmOpen+br+tab4+c507Open+br+tab5+e2005Open+'36'+e2005Close+tab5+e2380Open+e2380Close+tab5+e2379Open+'102'+e2379Close+tab4+c507Close+tab3+dtmClose+tab3+ftxOpen+br+tab4+e4451Open+'zzz'+e4451Close+tab4+c108Open+br+tab5+e4440Open+goodVat[i].value+e4440Close+tab4+c108Close+tab3+ftxClose;
 					xmlDocumentGoodsSg18Sg20 = tab3+sg18Open+sg18Close+tab3+sg20Open+br+tab4+locOpen+br+tab5+e3227Open+'7'+e3227Close+tab5+c517Open+br+tab5+tab+e3225Open+e3225Close+br+tab5+tab+e3055Open+'9'+e3055Close+tab5+c517Close+tab4+locClose+tab3+sg20Close ;
-					xmlDocumentGoods += tab2+sg17Open+br+xmlDocumentGoodsLin+xmlDocumentGoodsPia+xmlDocumentGoodsImd+xmlDocumentGoodsMea+xmlDocumentGoodsQty+xmlDocumentGoodsAliDtmFtx+xmlDocumentGoodsMoa+xmlDocumentGoodsSg18Sg20+tab2+sg17Close+tab+sg10Close;	
+					xmlDocumentGoods += tab2+sg17Open+br+xmlDocumentGoodsLin+xmlDocumentGoodsPia+xmlDocumentGoodsImd+xmlDocumentGoodsMea+xmlDocumentGoodsQty+xmlDocumentGoodsAliDtmFtx+xmlDocumentGoodsMoa+xmlDocumentGoodsSg18Sg20+tab2+sg17Close;	
 				};
 
-				xmlDocument = xmlDocumentHeader+xmlDocumentDtm+xmlDocumentMoaFtx+xmlDocumentMessageDetails+xmlDocumentParticipants+xmlDocumentGoods+xmlDocumentSummary;
+				xmlDocument = xmlDocumentHeader+xmlDocumentDtm+xmlDocumentMoaFtx+xmlDocumentMessageDetails+xmlDocumentParticipants+xmlDocumentGoods+tab+sg10Close+xmlDocumentSummary;
 			}
 			else if(docType=='recadv'){
-				xmlDocument = 'not available yet';
+				xmlDocument = xmlDocumentHeader+'Sorry, recadv is not completely available yet'+br+xmlDocumentSummary;
 			}
 			else {
-				xmlDocument = 'something went really wrong! How did you do that??';
+				error('some sort of error...');
 			}
 			
 		};
@@ -431,30 +467,83 @@ window.onload = function() {
  	};
 	
 	btnStart.addEventListener('click', function startChech() {
-		if (readyStatus == 0) {
+		if (readyStatus == false) {
 			codeField.innerHTML = 'Please select document type';
 		}
-		else if (readyStatus == 1) {
-			getData();
+		else if (readyStatus == true && readyStatus2 == false) {
+			codeField.innerHTML = 'Complete the form (next)';
+		}
+		else if (readyStatus == true && readyStatus2 == true) {
+			codeField.innerHTML = '';
+			codeField.appendChild(loader);
+			setTimeout(getData,300);
 		}
 		else {
 			alert('something went wrong');
 		}
 	});
-		 
+	
 	btnCopy.addEventListener('click', function () {
-		// let codeCopy = codeField; 
 		let range = document.createRange();
 		range.selectNode(codeField);
 		window.getSelection().addRange(range);
 		try { 
 			document.execCommand('copy'); 
-		} catch(err) { 
+		}
+		catch(err) { 
 			console.log('Can`t copy, boss'); 
 		}
 		window.getSelection().removeAllRanges();
 	});
+// notifications
+	let overlay = document.getElementsByClassName('overlay')[0];
+	let aboutWindow = document.getElementById('about-window');
+	let close = document.getElementsByClassName('close')[0];
+	let closeAlert = document.getElementsByClassName('close')[1];
+	let about = document.getElementsByClassName('about')[0];
+	let alertWindow = document.getElementsByClassName('notification')[0];
+	let alertMessage = document.getElementsByClassName('notification-body')[0];
+	about.addEventListener('click', function(){
+		overlay.classList.remove('hidden');
+		overlay.classList.add('visible');
+		aboutWindow.classList.remove('hidden');
+		aboutWindow.classList.add('visible');
+	});
+	overlay.addEventListener('click', function(){
+		overlay.classList.add('hidden');
+		overlay.classList.remove('visible');
+		aboutWindow.classList.add('hidden');
+		aboutWindow.classList.remove('visible');
+		alertWindow.classList.add('hidden');
+		alertWindow.classList.remove('visible');
+	});
+	close.addEventListener('click', function(){
+		overlay.classList.add('hidden');
+		overlay.classList.remove('visible');
+		aboutWindow.classList.add('hidden');
+		aboutWindow.classList.remove('visible');
+	});
 
+	function error(message) {
+		let op = 99;
+		alertMessage.innerHTML = message;
+		overlay.classList.remove('hidden');
+		overlay.classList.add('visible');
+		alertWindow.classList.remove('hidden');
+		alertWindow.classList.add('visible');
+
+		setTimeout(function(){
+			overlay.classList.add('hidden');
+			overlay.classList.remove('visible');
+			alertWindow.classList.add('hidden');
+			alertWindow.classList.remove('visible');
+		}, 3000);
+	};
+
+	closeAlert.addEventListener('click', function(){
+		overlay.classList.add('hidden');
+		overlay.classList.remove('visible');
+		alertWindow.classList.add('hidden');
+		alertWindow.classList.remove('visible');
+	});
 }
-// term test 2
-

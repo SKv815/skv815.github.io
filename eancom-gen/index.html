@@ -4,17 +4,24 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta charset="UTF-8">
 	<meta charset="UTF-8">
-	<title>Easy XML creator</title>
+	<title>EANCOM generator</title>
 	<link rel="stylesheet" href="style.css">
-	<link rel="icon" type="image/png" sizes="32x32" href="">
+	<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon.ico">
 	<script type="text/javascript" src="script.js"></script>
 </head>
 <body>
 	<header>
 		<div class="cont">
-		<div class="logo">Logo</div>
-		<div><h1>Easy EANCOM generator</h1></div>
-		<div>settings</div>
+			<div class="logo">
+				<img src="img/cat.png" alt="">
+			</div>
+			<div class="sign"><h1>Simple EANCOM generator</h1></div>
+			<div class="menu">
+				<ul>
+					<li><a href="#" class="about">about</a></li>
+				</ul>
+			</div>
+		</div>
 	</header>
 	<main>
 		<div class="half-screen">
@@ -24,7 +31,9 @@
 					<h5>Document data</h5>
 				</div>
 				<div class="cont">
-					<div class="col-4">Doc type</div>
+					<div class="col-4">
+						<p>Doc type</p>
+					</div>
 					<div class="col-4">
 						<div class="radio-item">
 							<input id="ordrsp" type="radio" name="doctype" value="ordrsp">
@@ -54,28 +63,28 @@
 						<input type="date" id="date-doc">
 					</div>
 					<div class="col-2 input-item">
-						<label for="date-order">Order date</label>
-						<input type="date" id="date-order">
-					</div>
-					<div class="col-2 input-item">
-						<label for="date-delivery">Delivery date</label>
-						<input type="date" id="date-delivery">
-					</div>
-					<div class="col-2 input-item">
 						<label for="order-number">Order number</label>
 						<input type="text" id="order-number">
 					</div>	
 					<div class="col-2 input-item">
+						<label for="date-order">Order date</label>
+						<input type="date" id="date-order">
+					</div>
+					<div class="col-2 input-item">
 						<label for="gln-by">Distr GLN</label>
-						<input type="text" id="gln-by" maxlength="13">
+						<input type="text" id="gln-by">
 					</div>
 					<div class="col-2 input-item">
 						<label for="gln-su">Manufacturer GLN</label>
-						<input type="text" id="gln-su" maxlength="13">
+						<input type="text" id="gln-su">
 					</div>
 					<div class="col-2 input-item">
 						<label for="gln-dt">Delivery point GLN</label>
-						<input type="text" id="gln-dt" maxlength="13">
+						<input type="text" id="gln-dt">
+					</div>
+					<div class="col-2 input-item">
+						<label for="date-delivery">Delivery date</label>
+						<input type="date" id="date-delivery">
 					</div>
 					<div class="col-2 input-item">
 						<label for="positions">Positions in document</label>
@@ -96,7 +105,7 @@
 						<button id="next">next</button>
 					</div>
 				</div>
-				<div class="goods-section">
+				<div class="goods-section hidden">
 				</div>
 			</div>
 		</div>
@@ -105,11 +114,33 @@
 			<div id="code" class="right">
 			</div>
 		</div>
+		<div class="overlay hidden"></div>
+		<div id="about-window" class="hidden">
+			<div class="about-header">
+				<h6>about</h6>
+				<div class="close">X</div>
+			</div>
+			<div class="about-body">
+				<p>This is a simple script for creating several types of EANCOM documents for their further loading right into the database.</p>
+				<p>Unfortunately, It is not intended for creating fully customized documents, only for basic tests related to their uploading.</p>
+				<p>Known bugs: The copy button requires a double-click.</p>
+				<p>Written by SKv815 | sk-v-815@inbox.ru</p>
+				<p>Any feedback is greatly appreciated.</p>
+				<p>- 2019 -</p>
+			</div>
+		</div>
+		<div class="notification hidden">
+			<div class="notification-header">
+				<h6>Alert</h6>
+				<div class="close">X</div>
+			</div>
+			<div class="notification-body">
+			</div>
+		</div>
 	</main>
 	<footer>
 		<div class="cont">
-			<div class="version">version: <span>0.0.1</span></div>
-			<div>created by Me 2019</div>
+			<div>version: <span class="version">0.0.9</span></div>
 		</div>
 	</footer>
 </body>
