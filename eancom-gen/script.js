@@ -3,7 +3,7 @@ window.onload = function() {
 //  This is Govnokod
 // ###################
 
-// html construction elements:
+//  tag construction elements:
 	let lb = '</div><div class="brackets">&lt;</div><div class="tagname">',
 		rb = '</div><div class="brackets">&gt;</div>',
 		br = '<p>&#13;</p>',
@@ -13,10 +13,9 @@ window.onload = function() {
 		tab2 = tab+tab,
 		tab3 = tab2+tab,
 		tab4 = tab3+tab,
-		tab5 = tab4+tab
-		;
+		tab5 = tab4+tab;
 
-// eancom construction elements
+//  eancom construction elements
 	let mainTagOpen,
 		mainTagClose,
 		unhOpen = lb+'uhn'+rb,
@@ -274,7 +273,10 @@ window.onload = function() {
 		supplierGln = document.getElementById('gln-su'),
 		deliveryPointGln = document.getElementById('gln-dt');
 
-// Inputs trim
+// Header inputs trim
+	function integersOnly (){
+		this.value = this.value.replace(/[^-0-9]/g,'');
+	}
 	distrGln.addEventListener('input',function(){
 		this.value = this.value.replace(/[^-0-9]/g,'');
 	});
@@ -284,6 +286,7 @@ window.onload = function() {
 	deliveryPointGln.addEventListener('input',function(){
 		this.value = this.value.replace(/[^-0-9]/g,'');
 	});
+
 
 // 1st step - definition of document type
 	function getDocType () {
@@ -331,8 +334,8 @@ window.onload = function() {
 
 // 2nd step - exdanding form - adding posotions
 // elements for positions section
-	let pos1 = '<div class="good"><div class="cont"><div class="col item-number"><h6 class=>Item ',
-		pos2 = '</h6></div></div><div class="cont"><div class="col good-header"><label>Item name</label><input type="text" class="good-name" maxlength="80"></div><div class="col-2 input-item"><label>Order unit</label><select name="good-order-unit" class="good-order-unit"><option value="PA">Packages</option><option value="PCE">Pieces</option></select></div><div class="col-2 input-item"><label>GTIN code</label><input type="text" class="good-gtin" maxlength="20" placeholder="upc, ean or gtin"></div><div class="col-2 input-item"><label>Art.</label><input type="text" class="good-art"></div><div class="col-2 input-item"><label>Ordered</label><input type="text" class="good-ordered"></div><div class="col-2 input-item"><label>Confirmed</label><input type="text" class="good-confirmed"></div><div class="col-2 input-item"><label>Shipped</label><input type="text" class="good-shipped"></div><div class="col-2 input-item"><label>Pieces in package</label><input type="text" class="good-pceinpa"></div><div class="col-2 input-item"><label>Price without VAT</label><input type="text" class="good-pricenovat"></div><div class="col-2 input-item"><label>Price with VAT</label><input type="text" class="good-pricevat"></div><div class="col-2 input-item"><label>tax rate</label><input class="tax" type="number" class="good-vat" min="0" max="100" placeholder="20%"></div></div></div>';
+	let pos1 = '<div class="good"><div class="cont"><div class="col-1 item-number"><h6 class=>Item ',
+		pos2 = '</h6></div></div><div class="cont"><div class="col-1 good-header"><label>Item name</label><input type="text" class="good-name" maxlength="180"></div><div class="col-2 input-item"><label>Order unit</label><select name="good-order-unit" class="good-order-unit"><option value="PA">Packages</option><option value="PCE">Pieces</option></select></div><div class="col-2 input-item"><label>GTIN code</label><input type="text" class="good-gtin" maxlength="20" placeholder="upc, ean or gtin"></div><div class="col-2 input-item"><label>Art.</label><input type="text" class="good-art"></div><div class="col-2 input-item"><label>Ordered</label><input type="text" class="good-ordered"></div><div class="col-2 input-item"><label>Confirmed</label><input type="text" class="good-confirmed"></div><div class="col-2 input-item"><label>Shipped</label><input type="text" class="good-shipped"></div><div class="col-2 input-item"><label>Pieces in package</label><input type="text" class="good-pceinpa"></div><div class="col-2 input-item"><label>Price without VAT</label><input type="text" class="good-pricenovat"></div><div class="col-2 input-item"><label>Price with VAT</label><input type="text" class="good-pricevat"></div><div class="col-2 input-item"><label>Tax rate</label><input class="tax" type="number" class="good-vat" min="0" max="100" placeholder="20%"></div></div></div>';
 	let extandActive = false;
 	next.addEventListener('click', function(){
 		if (extandActive == false) {
@@ -357,8 +360,6 @@ window.onload = function() {
 		}
 		readyStatus2 = true;
 	});
-
-
 
 // get dynamic data from inputs
 	function getData(){
@@ -390,9 +391,12 @@ window.onload = function() {
 			goodPriceVat = document.getElementsByClassName('good-pricevat'),
 			goodVat = document.getElementsByClassName('tax');
 
-			
+// Inputs trim 2
+	for (var i = 0; i <= goodOrdered.length - 1; i++) {
+		goodOrdered[i].addEventListener('input',function(){
+		this.value = this.value.replace(/[^-0-9]/g,'');})
+	};	
 		
-
 // creating eancom document matching it's typed, by sections
 		function createEancom() {
 			let	xmlDocumentHeader = '',
@@ -577,7 +581,7 @@ window.onload = function() {
 
 // "product" version
 	let version = document.getElementsByClassName('version')[0];
-		version.innerHTML = '0.0.9';
+		version.innerHTML = '0.1.0';
 
 // auto filling doc number
 	let orderNumberAf = document.getElementById('order-number'),

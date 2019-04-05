@@ -1,13 +1,9 @@
 /* ##### common ##### */
-.test1 {
-	background-color: yellow;
-	color: red;
-	transition: all 2s ease;
+.new {
+	background-color: #fce9b2;
 }
-.test2 {
-	background-color: green;
-	color: red;
-	transition: all 2s ease;
+.new:focus {
+	background-color: #fce2c8;
 }
 * {
 	box-sizing: border-box;
@@ -17,6 +13,9 @@
 	font-size: 0.9rem;
 	color: #1A2942;
 }
+a {
+	text-decoration: none;
+}
 .cont {
 	display: flex;
 	flex-direction: row;
@@ -25,7 +24,7 @@
 	align-items: stretch;
 	width: 100%;
 }
-.col {
+.col-1 {
 	flex-basis: 100%;
 }
 .col-2 {
@@ -33,39 +32,6 @@
 }
 .col-4 {
 	flex-basis: 25%;
-}
-input {
-	border-top: 2px solid #a8a8a8;
-	border-right: 2px solid #eee;
-	border-bottom: 2px solid #eee;
-	border-left: 2px solid #a8a8a8;
-	border-radius: 5px;
-	padding: 0 5px;
-	outline: none;
-	transition: all 0.2s ease;
-}
-input:focus {
-	border-top: 2px solid #89aadd;
-	border-right: 2px solid #c8daf4;
-	border-bottom: 2px solid #c8daf4;
-	border-left: 2px solid #89aadd;
-	background-color: #fcfdff;
-}
-select {
-	padding: 2px 5px;
-	border-radius: 5px;
-	background-color: #ccc;
-	outline: none;
-	min-width: 57%;
-}
-select option {
-	background-color: #eee;
-}
-select option:active {
-	background-color: red;
-}
-a {
-	text-decoration: none;
 }
 .visible {
 	visibility: visible;
@@ -76,7 +42,6 @@ a {
 	visibility: hidden;
 	opacity: 0;
 }
-/* #################### */
 
 /* ##### main screen layout ##### */
 body {
@@ -166,9 +131,40 @@ footer .cont {
 	display: flex;
 	align-items: center;
 }
-/* #################### */
 
 /* ##### main inputs style ##### */
+.col-1 label {
+	display: inline-block;
+	width: 20%;
+}
+.col-1 input {
+	vertical-align: top;
+	box-sizing: border-box;
+	width: 78.5%;
+	height: 1.5rem;
+	margin-right: 1.5%;
+}
+.input-item {
+	margin-bottom: 10px;
+	font-size: 0;
+}
+.col-2 label {
+	display: inline-block;
+	width: 40%;
+}
+.col-2 input {
+	vertical-align: top;
+	box-sizing: border-box;
+	width: 57%;
+	height: 1.5rem;
+	margin-right: 3%;
+}
+.col-2 input.short {
+	width: 40%;
+}
+.col-2 input.extra {
+	width: 14%;
+}
 .col-4 p {
 	display: flex;
 	align-items: center;
@@ -177,7 +173,6 @@ footer .cont {
 .radio-item {
 	width: 80%;
 }
-
 label[for="ordrsp"]::before {
 	content: "ordrsp";
 }
@@ -187,7 +182,6 @@ label[for="desadv"]::before {
 label[for="recadv"]::before {
 	content: "recadv";
 }
-
 .radio-item label::before {
 	display: inline-block;
 	visibility: visible;
@@ -223,26 +217,37 @@ label[for="recadv"]::before {
 .radio-item label {
 	visibility: hidden;
 }
-.input-item {
-	margin-bottom: 10px;
-	font-size: 0;
+input {
+	border-width: 2px;
+	border-style: solid;
+	border-color: #a8a8a8 #eee #eee #a8a8a8;
+	border-radius: 5px;
+	padding: 0 5px;
+	outline: none;
+	transition: all 0.2s ease;
 }
-.input-item label {
-	display: inline-block;
-	width: 40%;
+input:focus {
+	border-width: 2px;
+	border-style: solid;
+	border-color: #89aadd #c8daf4 #c8daf4 #89aadd;
+	background-color: #fcfdff;
 }
-.input-item input {
-	vertical-align: top;
-	box-sizing: border-box;
-	width: 57%;
-	height: 1.5rem;
-	margin-right: 3%;
+select {
+	padding: 2px 5px;
+	border-radius: 5px;
+	background-color: #ccc;
+	outline: none;
+	min-width: 57%;
+}
+select option {
+	background-color: #eee;
 }
 .input-item select {
 	vertical-align: top;
 }
-/* #################### */
-
+.goods-section {
+	margin-bottom: 60px;
+}
 /* ##### goods' specifications ##### */
 .goods-section {
 	padding-top: 5px;
@@ -268,19 +273,6 @@ label[for="recadv"]::before {
 	margin-bottom: 10px;
 	font-size: 0;
 }
-.good-header label {
-	display: inline-block;
-	width: 20%;
-}
-.good-header input {
-	vertical-align: top;
-	box-sizing: border-box;
-	width: 78.5%;
-	height: 1.5rem;
-	margin-right: 1.5%;
-}
-
-/* #################### */
 
 /* ##### buttons ##### */
 .btn {
@@ -329,8 +321,6 @@ label[for="recadv"]::before {
 	border-right: 2.5rem solid transparent;
 }
 
-/* #################### */
-
 /* ##### code style ##### */
 #code {
 	background: #1A2942;
@@ -347,7 +337,8 @@ label[for="recadv"]::before {
 .tab {
 	letter-spacing: 0.2rem;
 }
-/* #################### */
+
+/* ##### notifications and loader ##### */
 .overlay {
 	position: absolute;
 	top: 0;
@@ -455,7 +446,6 @@ label[for="recadv"]::before {
 	border-radius: 50%;
 	background-color: white;
 }
-
 @keyframes spin {
     0%   {
         -webkit-transform: rotate(0deg);
@@ -468,6 +458,7 @@ label[for="recadv"]::before {
         transform: rotate(360deg);
     }
 }
+
 /* ##### media ##### */
 @media screen and (max-width: 1000px) {
 	.col-2 {
@@ -476,7 +467,7 @@ label[for="recadv"]::before {
 	.col-4 {
 		flex-basis: 100%;
 	}
-	input.good-name {
+	.col-1 > input {
 		width: 97%;
 	}
 	.item-number {
@@ -500,18 +491,4 @@ label[for="recadv"]::before {
 		top: 40px; 
 		bottom: auto;
 	}
-}
-.new {
-	background-color: #fce9b2;
-}
-.comm label {
-	display: inline-block;
-	width: 20%;
-}
-#comment {
-	vertical-align: top;
-	box-sizing: border-box;
-	width: 78.5%;
-	height: 1.5rem;
-	margin-right: 1.5%;
 }

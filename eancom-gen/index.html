@@ -56,11 +56,8 @@
 				<div class="cont main-section hidden">
 					<div class="col-2 input-item">
 						<label for="doc-number">Document number</label>
-						<input type="text" id="doc-number">
-					</div>
-					<div class="col-2 input-item">
-						<label for="doc-number">Номер версии</label>
-						<input type="text" id="doc-ver" class="new">
+						<input type="text" id="doc-number" class="short">
+						<input type="text" id="doc-ver" class="new extra" placeholder="ver.">
 					</div>
 					<div class="col-2 input-item">
 						<label for="date-doc">Document date</label>
@@ -68,18 +65,15 @@
 					</div>
 					<div class="col-2 input-item">
 						<label for="order-number">Order number</label>
-						<input type="text" id="order-number">
-					</div>
-					<div class="col-2 input-item">
-						<label for="doc-number">Версия заказа</label>
-						<input type="text" id="order-ver" class="new">
+						<input type="text" id="order-number" class="short">
+						<input type="text" id="order-ver" class="new extra" placeholder="ver.">
 					</div>
 					<div class="col-2 input-item">
 						<label for="date-order">Order date</label>
 						<input type="date" id="date-order">
 					</div>
 					<div class="col-2 input-item">
-						<label for="gln-by">Distr GLN</label>
+						<label for="gln-by">Buyer GLN</label>
 						<input type="text" id="gln-by">
 					</div>
 					<div class="col-2 input-item">
@@ -94,12 +88,12 @@
 						<label for="date-delivery">Delivery date</label>
 						<input type="date" id="date-delivery">
 					</div>
-					<div class="col input-item comm">
-						<label for="comment">комментарий</label>
+					<div class="col-1 input-item">
+						<label for="comment">Comment</label>
 						<input type="text" id="comment" class="new">
 					</div>
 					<div class="col-2 input-item">
-						<label for="positions">Positions in document</label>
+						<label for="positions">Lines in document</label>
 						<select name="positions" id="positions">
 							<option value="1">1</option>
 							<option value="2">2</option>
