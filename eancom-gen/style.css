@@ -474,7 +474,7 @@ select option {
 		margin-right: 3%;
 	}
 	.radio-item {
-		width: 96%;
+		width: 97%;
 		margin-top: -10px;
 		margin-bottom: -10px;
 	}
@@ -490,5 +490,67 @@ select option {
 	#copy {
 		top: 40px; 
 		bottom: auto;
+	}
+}
+@media screen and (max-width: 450px) {
+	.sign {
+		text-align: center;
+		display: block;
+	}
+	header>.cont {
+		display: block;
+	}
+	#about-window {
+		height: 100vh;
+		width: 100vw;
+		top: 0;
+		left: 0;
+		margin-top: 0;
+		margin-left: 0;
+		border-radius: 0;
+	}
+	.about-header {
+		width: 100vw;
+	}
+	.notification {
+		height: 50vh;
+		width: 80vw;
+		top: 50px;
+		left: 50%;
+		margin-top: 0;
+		margin-left: -40vw;
+		border-radius: 0;
+	}
+	.notification-header {
+		position: relative;
+		top: -1px;
+		left: -1px;
+		height: 18px;
+		width: 100%;
+		border-radius: 0;
+	}
+	.half-screen:first-child {
+		padding: 0 0 3px 0;
+	}
+	.half-screen {
+		padding: 0;
+	}
+	.logo,
+	.menu {
+		display: none;
+	}
+}
+@media screen and (max-width: 170px) {
+	* {
+		display: none;
+	}
+	html {
+		display: block;
+	}
+	html::after {
+		display: block;
+		content: "Oh come on. Nobody will use less than 170px screen";
+		text-align: center;
+		padding-top: 30%;
 	}
 }

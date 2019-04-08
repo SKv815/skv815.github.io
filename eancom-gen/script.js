@@ -449,7 +449,7 @@ window.onload = function() {
 					xmlDocumentGoodsPia = tab2+piaOpen+br+tab3+e4347Open+'1'+e4347Close+br+tab3+c212Open+br+tab4+e7140Open+goodArts[i].value+e7140Close+tab4+e7143Open+'sa'+e7143Close+tab3+c212Close+tab2+piaClose;
 					xmlDocumentGoodsImd = tab2+imdOpen+br+tab3+e7077Open+'f'+e7077Close+tab3+c273Open+br+tab4+e7008Open+'<p class="no-transform">'+goodNames[i].value+'</p>'+e7008Close+tab3+c273Close+tab2+imdClose;
 					xmlDocumentGoodsQty = tab2+qtyOpen+br+tab3+c186Open+br+tab4+e6063Open+'21'+e6063Close+tab4+e6060Open+(goodOrdered[i].value+'.000')+e6060Close+tab4+e6411Open+goodOrderUnits[i].value+e6411Close+tab3+c186Close+tab2+qtyClose+tab2+qtyOpen+br+tab3+c186Open+br+tab4+e6063Open+'170'+e6063Close+tab4+e6060Open+(goodConfirmed[i].value+'.000')+e6060Close+tab4+e6411Open+goodOrderUnits[i].value+e6411Close+tab3+c186Close+tab2+qtyClose;
-					xmlDocumentGoodsMoa = tab2+moaOpen+br+tab3+c516Open+br+tab4+e5025Open+'203'+e5025Close+tab4+e5004Open+lineValueClear+e5004Close+tab3+c516Close+tab2+moaClose+tab2+moaOpen+br+tab3+c516Open+br+tab4+e5025Open+'128'+e5025Close+tab4+e5004Open+lineValueVat+e5004Close+tab3+c516Close+tab2+moaClose;
+					xmlDocumentGoodsMoa = tab2+moaOpen+br+tab3+c516Open+br+tab4+e5025Open+'203'+e5025Close+tab4+e5004Open+lineValueClear+e5004Close+tab3+c516Close+tab2+moaClose+tab2+moaOpen+br+tab3+c516Open+br+tab4+e5025Open+'128'+e5025Close+tab4+e5004Open+lineValueVat+e5004Close+tab3+c516Close+tab2+moaClose+tab2+moaOpen+br+tab3+c516Open+br+tab4+e5025Open+'124'+e5025Close+tab4+e5004Open+(lineValueVat-lineValueClear)+e5004Close+tab3+c516Close+tab2+moaClose;
 					xmlDocumentGoodsSg30Sg36 = tab2+sg30Open+br+tab3+priOpen+br+tab4+c509Open+br+tab5+e5125Open+'aaa'+e5125Close+tab5+e5118Open+goodPriceClear[i].value.replace(/ /g,"").replace(/,/g,".")+e5118Close+tab4+c509Close+tab3+priClose+tab2+sg30Close+tab2+sg30Open+br+tab3+priOpen+br+tab4+c509Open+br+tab5+e5125Open+'aae'+e5125Close+tab5+e5118Open+goodPriceVat[i].value.replace(/ /g,"").replace(/,/g,".")+e5118Close+tab4+c509Close+tab3+priClose+tab2+sg30Close+tab2+sg36Open+br+tab3+taxOpen+br+tab4+e5283Open+'7'+e5283Close+tab4+c241Open+br+tab5+e5153Open+'vat'+e5153Close+tab4+c241Close+tab4+c243Open+br+tab5+e5278Open+goodVat[i].value+e5278Close+tab4+c243Close+tab3+taxClose+tab2+sg36Close;
 					xmlDocumentGoods += tab+sg26Open+br+xmlDocumentGoodsLin+xmlDocumentGoodsPia+xmlDocumentGoodsImd+xmlDocumentGoodsQty+xmlDocumentGoodsMoa+xmlDocumentGoodsSg30Sg36+tab+sg26Close;	
 				};
@@ -490,7 +490,7 @@ window.onload = function() {
 				xmlDocument = xmlDocumentHeader+'Sorry, recadv is not completely available yet'+br+xmlDocumentSummary;
 			}
 			else {
-				error('some sort of error...');
+				error('Error in doctype...');
 			}
 			
 		};
@@ -498,7 +498,7 @@ window.onload = function() {
 		codeField.innerHTML = xmlDocument;
  	};
 	
-	btnStart.addEventListener('click', function startChech() {
+	btnStart.addEventListener('click', function startCheck() {
 		if (readyStatus == false) {
 			codeField.innerHTML = 'Please select document type';
 		}
@@ -511,7 +511,7 @@ window.onload = function() {
 			setTimeout(getData,300);
 		}
 		else {
-			alert('something went wrong');
+			error('Error in ready status...');
 		}
 	});
 	
@@ -581,7 +581,7 @@ window.onload = function() {
 
 // "product" version
 	let version = document.getElementsByClassName('version')[0];
-		version.innerHTML = '0.1.0';
+		version.innerHTML = '0.0.9';
 
 // auto filling doc number
 	let orderNumberAf = document.getElementById('order-number'),
