@@ -299,7 +299,12 @@ window.onload = function() {
 		deliveryPointGln = document.getElementById('gln-dt'),
 		forRecadv = document.getElementsByClassName('for-recadv')[0],
 		confirmedOrShipped,
-		isRecadv;
+		isRecadv,
+		eancom = document.getElementById('eancom'),
+		dbPre = document.getElementsByClassName('db')[0],
+		dbPost = document.getElementsByClassName('db')[1],
+		clearAllBtn = document.getElementsByClassName('clear')[0],
+		clearGoodsBtn = document.getElementsByClassName('clear')[1];
 
 // Header inputs trim
 	function integersOnly (){
@@ -315,6 +320,13 @@ window.onload = function() {
 		this.value = this.value.replace(/[^-0-9]/g,'');
 	});
 
+//EXPeriment. How to add goods items instead of full rebuilding goods section
+	function getDifference() {
+		positions = document.getElementById('positions').value;
+		console.log(positions);
+	}
+	let positions1 = document.getElementById('positions');
+	positions1.addEventListener('click', getDifference);
 
 // 1st step - definition of document type
 	function getDocType () {
@@ -458,12 +470,11 @@ window.onload = function() {
 		radioButtons[r].addEventListener('click', docNumberRefresh);
 	};
 
-
 // 2nd step - expanding form - adding posotions
 // elements for positions section
 	let pos1 = '<div class="good"><div class="cont"><div class="col-1 item-number"><h6 class=>Item ',
 		pos2 = '</h6></div></div><div class="cont"><div class="col-1 good-header"><label>Item name</label><input type="text" class="good-name" maxlength="180"></div><div class="col-2 input-item"><label>Order unit</label><select name="good-order-unit" class="good-order-unit"><option value="PA">Packages</option><option value="PCE">Pieces</option></select></div><div class="col-2 input-item"><label>Pieces in package</label><input type="text" class="good-pceinpa"></div><div class="col-2 input-item"><label>Art.</label><input type="text" class="good-art"></div><div class="col-2 input-item"><label>GTIN code</label><input type="text" class="good-gtin" maxlength="20" placeholder="upc, ean or gtin"></div><div class="col-2 input-item"><label>Ordered</label><input type="text" class="good-ordered"></div><div class="col-2 input-item"><label>',
-		pos3 = '</label><input type="text" class="good-confirmed"></div><div class="col-2 input-item"><label>Price without VAT</label><input type="text" class="good-pricenovat"></div><div class="col-2 input-item"><label>Price with VAT</label><input type="text" class="good-pricevat"></div><div class="col-2 input-item"><label>Tax rate %</label><input class="tax" type="number" class="good-vat" min="0" max="100" placeholder="e.g. 18"></div><div class="col-2 input-item ',
+		pos3 = '</label><input type="text" class="good-confirmed"></div><div class="col-2 input-item"><label>Price without VAT</label><input type="text" class="good-pricenovat"></div><div class="col-2 input-item"><label>Price with VAT</label><input type="text" class="good-pricevat"></div><div class="col-2 input-item"><label>Tax rate %</label><input class="tax" type="number" class="good-vat" min="0" max="100" placeholder="18"></div><div class="col-2 input-item ',
 		pos4 = '"><label>Received</label><input type="text" class="good-received new"></div></div></div>';
 	let expandActive = false;
 	next.addEventListener('click', function(){
@@ -475,7 +486,7 @@ window.onload = function() {
 			goodsSection.classList.add('visible');
 			let e = 1;
 			let a = setInterval(expand, 70);
-			function expand() {
+			function expand() {	
 				goodsSection.innerHTML += pos1+e+pos2+confirmedOrShipped+pos3+isRecadv+pos4;
 				e++;
 				if (e > positions) {
@@ -650,29 +661,49 @@ window.onload = function() {
 			}
 			
 		};
+		let senderGln,
+			reveiverGln;
+		if (docType == 'recadv') {
+			senderGln = distrGln;
+			reveiverGln = supplierGln;
+		}
+		else {
+			senderGln = supplierGln;
+			reveiverGln = distrGln;
+		}
+
+		dbPre.innerHTML = ("alter session set NLS_NUMERIC_CHARACTERS = ',.'; <br/>declare <br/> err_msg   varchar2 (1000);<br/> p_file_id number;<br/> p_doc_id  number;<br/>   v_clob clob;<br/><br>begin<br>v_clob:='<br/>");
+		dbPost.innerHTML = ("';<br/><br/>EDI_API_PKG.Add_Edi_Doc(p_doc_type =>'"+"<p style ='text-transform: uppercase; display: inline-block;'>"+docType+"</p>"+"',<br/> p_sender_gln =>'"+senderGln+"',<br/> p_receiver_gln =>'"+reveiverGln+"',<br/> p_need_eds=>0,<br/> err_msg=>err_msg,<br/> p_file_id=>p_file_id,<br/> p_doc_id  =>p_doc_id,<br/> p_doc_body =>v_clob<br/> ) ;<br/> commit;<br/>end;");
 		createEancom();
-		codeField.innerHTML = xmlDocument;
+		eancom.innerHTML = xmlDocument;
  	};
 	
 	btnStart.addEventListener('click', function startCheck() {
 		if (readyStatus == false) {
-			codeField.innerHTML = 'Please select document type';
+			eancom.innerHTML = 'Please select document type';
 		}
 		else if (readyStatus == true && readyStatus2 == false) {
-			codeField.innerHTML = 'Complete the form (next)';
+			eancom.innerHTML = 'Complete the form (next)';
 		}
 		else if (readyStatus == true && readyStatus2 == true) {
-			codeField.innerHTML = '';
-			codeField.appendChild(loader);
+			eancom.innerHTML = '';
+			eancom.appendChild(loader);
 			setTimeout(getData,300);
 		}
 		else {
 			error('Error in ready status...');
 		}
 	});
-	
+
 	btnCopy.addEventListener('click', function () {
-		let result = document.getElementById('code');
+		let needDbScript = document.getElementById('need-script');
+		let result;
+		if (needDbScript.checked) {
+			result = document.getElementById('code');
+		} 
+		else {
+			result = document.getElementById('eancom');
+		}
 		let range = document.createRange();
 		range.selectNode(result);
 		window.getSelection().removeAllRanges();
@@ -737,18 +768,66 @@ window.onload = function() {
 		alertWindow.classList.remove('visible');
 	});
 
-// "product" version
-	let version = document.getElementsByClassName('version')[0];
-		version.innerHTML = '0.9.1';
-
 // auto filling doc number
 	let orderNumberAf = document.getElementById('order-number'),
 		docNumberAf = document.getElementById('doc-number');
 	orderNumberAf.addEventListener('input', docNumberRefresh);
 
-		function docNumberRefresh() {
+	function docNumberRefresh() {
 		let docNumber = document.getElementById('doc-number').value,
 			orderNumber = document.getElementById('order-number').value;
 		docNumberAf.value = docType+'-'+orderNumber;
 	}
+
+// clear fields
+	function clearMain(){
+		let mainInputs = document.querySelectorAll('.main-section input');
+		for (let i = 1; i <= mainInputs.length - 1; i++) {
+			mainInputs[i].value = '';
+		}
+		if (readyStatus) {
+			document.getElementById('doc-number').value = docType + '-';	
+		}
+	};
+	function clearGoods() {
+		let allGoodsInputs = document.querySelectorAll('.goods-section input');
+		for (let i = 0; i <= allGoodsInputs.length-1; i++) {
+			allGoodsInputs[i].value = '';
+		}
+		let allOrderUnits = document.querySelectorAll('.good-order-unit option');
+		for (let ii = 0; ii <= allOrderUnits.length - 1; ii++) {
+			allOrderUnits[ii].removeAttribute('selected');
+		}
+		for (let iii = 0; iii <= allOrderUnits.length - 1; iii+=2) {
+			allOrderUnits[iii].setAttribute('selected', 'selected');
+		}
+	};
+
+	clearAllBtn.addEventListener('click',clearMain);
+	clearAllBtn.addEventListener('click',clearGoods);
+	clearAllBtn.addEventListener('click',function(){
+		let clearIcon = document.querySelectorAll('.clear-icon')
+		let clearAnim = setInterval(rotate,8);
+		let r = 0;
+		function rotate(){
+			r+=10;
+			clearIcon[0].style.transform = 'rotate('+r+'deg)';
+			if (r >= 360) {clearInterval(clearAnim)}
+		};
+	});
+	clearGoodsBtn.addEventListener('click',clearGoods);
+	clearGoodsBtn.addEventListener('click',function(){
+		let clearIcon = document.querySelectorAll('.clear-icon')
+		let clearAnim = setInterval(rotate,8);
+		let r = 0;
+		function rotate(){
+			r+=10;
+			clearIcon[1].style.transform = 'rotate('+r+'deg)';
+			if (r >= 360) {clearInterval(clearAnim)}
+		};
+	});
+
+// "product" version
+	let version = document.getElementsByClassName('version')[0];
+		version.innerHTML = '0.9.3';
 }

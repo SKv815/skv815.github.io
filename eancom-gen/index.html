@@ -26,9 +26,18 @@
 	<main>
 		<div class="half-screen">
 			<button id="start" class="btn">generate</button>
+			<div class="db-check">
+				<label for="need-script">Include DB script into the clipboard
+					<input id="need-script" type="checkbox" checked>
+					<div class="checkmark"></div>
+				</label>
+			</div>
 			<div class="left">
 				<div class="cont">
 					<h5>Document data</h5>
+					<div class="clear">clear all
+						<span class="clear-icon"></span>
+					</div>
 				</div>
 				<div class="cont">
 					<div class="col-4">
@@ -119,6 +128,9 @@
 					</div>
 					<div class="col-2">
 						<button id="next">next</button>
+						<div class="clear">clear goods
+							<span class="clear-icon"></span>
+						</div>
 					</div>
 				</div>
 				<div class="goods-section hidden">
@@ -128,6 +140,9 @@
 		<div class="half-screen">
 			<button id="copy" class="btn">copy</button>
 			<div id="code" class="right">
+				<p class="db"></p>
+				<div id="eancom"></div>
+				<p class="db"></p>
 			</div>
 		</div>
 		<div class="overlay hidden"></div>

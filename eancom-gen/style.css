@@ -23,6 +23,7 @@ a {
 	flex-wrap: wrap;
 	align-items: stretch;
 	width: 100%;
+	position: relative;
 }
 .col-1 {
 	flex-basis: 100%;
@@ -30,6 +31,7 @@ a {
 }
 .col-2 {
 	flex-basis: 50%;
+	position: relative;
 }
 .col-4 {
 	flex-basis: 25%;
@@ -101,6 +103,9 @@ main {
 	padding: 15px 40px;
 	overflow-y: scroll;
 	background: #fff;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	user-select: none; 
 }
 .left h5 {
 	font-size: 1.2rem;
@@ -233,6 +238,9 @@ input:focus {
 	border-color: #89aadd #c8daf4 #c8daf4 #89aadd;
 	background-color: #fcfdff;
 }
+input::placeholder {
+	color: silver;
+}
 select {
 	padding: 2px 5px;
 	border-radius: 5px;
@@ -297,12 +305,10 @@ select option {
 	border: 1px solid #333;
 	border-radius: 8px;
 	box-shadow: 1px 1px 1px #333;
-	z-index: 20;
+	z-index: 30;
 }
 .btn:active {
-	box-shadow: -1px -1px 1px #333;
-	right: 39px;
-	bottom: 39px;
+	box-shadow: inset 1px 1px 1px #333;
 }
 #next {
 	font-family: Arial, sans-serif;
@@ -332,8 +338,6 @@ select option {
 /* ##### code style ##### */
 #code {
 	background: #1A2942;
-	text-transform: uppercase;
-	color: white;
 }
 .brackets, .slash {
 	color: silver;
@@ -345,7 +349,91 @@ select option {
 .tab {
 	letter-spacing: 0.2rem;
 }
+#eancom {
+	text-transform: uppercase;
+	color: white;
+}
+.db {
+		text-transform: none;
+		opacity: 0;
+		max-height: 0;
+	}
+.db-check {
+	position: absolute;
+	left: 40px;
+	bottom: 40px;
+	padding: 10px 10px;
+	background: radial-gradient(white 40%, transparent 70%);
+	outline: none;
+	border-radius: 8px;
+	z-index: 20;
+}
+.db-check label {
+	cursor: pointer;
+	padding-left: 35px;
+	-moz-user-select: none;
+	user-select: none; 
+}
+.db-check label::before {
+	content: "";
+	display: block;
+	position: absolute;
+	height: 16px;
+	width: 16px;
+	border: 1px solid #333;
+	border-radius: 5px;
+	left: 20px;
+	top: 50%;
+	margin-top: -8px;
+	background-color: white;
+	transition: background 0.2s ease;
 
+}
+.db-check label:hover::before {
+	background-color: #eee;
+	transition: background 0.2s ease;
+}
+.db-check input {
+	visibility: hidden;
+}
+.db-check input:checked ~ .checkmark {
+	visibility: visible;
+}
+.checkmark {
+	display: block;
+	position: absolute;
+	box-sizing: border-box;
+	height: 18px;
+	width: 18px;
+	border: 1px solid black;
+	border-radius: 5px;
+	left: 20px;
+	top: 50%;
+	margin-top: -8px;
+	visibility: hidden;
+}
+.checkmark::before {
+	content: "";
+	display: block;
+	position: absolute;
+	height: 4px;
+	width: 10px;
+	left: 0px;
+	top: 7px;
+	background-color: green;
+	transform: rotate(45deg);
+}
+.checkmark::after {
+	content: "";
+	display: block;
+	position: absolute;
+	height: 4px;
+	width: 12px;
+	left: 4.4px;
+	top: 6px;
+	background-color: green;
+	transform: rotate(-45deg);
+}
 /* ##### notifications and loader ##### */
 .overlay {
 	position: absolute;
@@ -467,6 +555,7 @@ select option {
 	margin-left: -20px;
 	border-radius: 50%;
 	border: 5px solid rgba(20, 20, 20, 0.5);
+	z-index: 50;
     -webkit-animation: spin 0.5s linear infinite;
     animation: spin 0.4s linear infinite;
 }
@@ -490,7 +579,29 @@ select option {
         transform: rotate(360deg);
     }
 }
-
+.clear {
+	position: absolute;
+	line-height: 20px;
+	top: 0;
+	right: 0;
+	padding-right: 25px;
+	cursor: pointer;
+	transition: color 0.2s linear;
+}
+.clear:hover {
+	color: #0e3d87;
+	transition: color 0.2s linear;
+}
+.clear-icon {
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 20px;
+	width: 20px;
+	border-radius: 50%;
+	background: url("img/refresh.png") center no-repeat;
+	background-size: contain;
+}
 /* ##### media ##### */
 @media screen and (max-width: 1000px) {
 	.col-2 {
@@ -523,8 +634,11 @@ select option {
 		top: 40px; 
 		bottom: auto;
 	}
+	#code {
+		min-height: 200px;
+	}
 }
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 480px) {
 	.sign {
 		text-align: center;
 		display: block;
@@ -571,8 +685,31 @@ select option {
 	.menu {
 		display: none;
 	}
+	.btn {
+		width: 80%;
+		right: 20%;
+		margin-right: -10%;
+	}
+	#start {
+		bottom: 20px;
+	}
+	.db-check {
+		bottom: 60px;
+		width: 80%;
+		right: 20%;
+		margin-right: -10%;
+	}
+	#copy {
+		top: 20px;
+	}
+	#code {
+		padding-top: 70px;
+	}
+	.good:last-child {
+		margin-bottom: 80px;
+	}
 }
-@media screen and (max-width: 170px) {
+@media screen and (max-width: 319px) {
 	* {
 		display: none;
 	}
@@ -581,7 +718,7 @@ select option {
 	}
 	html::after {
 		display: block;
-		content: "Oh come on. Nobody will use less than 170px screen";
+		content: "Oh come on. Nobody will use less than 320px screen";
 		text-align: center;
 		padding-top: 30%;
 	}
