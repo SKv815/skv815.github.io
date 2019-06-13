@@ -131,6 +131,7 @@ footer {
 	height: 3vh;
 	padding: 1px 40px;
 	background: #fff;
+	z-index: 40;
 }
 footer .cont {
 	height: 100%;
@@ -636,6 +637,9 @@ select option {
 	}
 	#code {
 		min-height: 200px;
+	}
+	footer {
+		background-color: silver;
 	}
 }
 @media screen and (max-width: 480px) {
