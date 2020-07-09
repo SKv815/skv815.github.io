@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Barcode</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="icon" type="image/png" sizes="32x32" href="favicon.ico">
+</head>
+<body>
+	<header>
+		<div class="cont">
+			<h2>Fast barcode for Scanner app</h2>
+		</div>
+	</header>
+	<main>
+		<div class="cont">
+			<div class="half input">
+				<div class="form">
+					<div class="input_item">
+						<select id="preffix">
+							<option value="AMJ">AMJ</option>
+							<option value="AAD">AAD</option>
+							<option value="AQF">AQF</option>
+							<option value="SAA">SAA</option>
+							<option value="AKE">AKE</option>
+							<option value="APE">APE</option>
+							<option value="AYY">AYY</option>
+						</select>
+					</div>
+					<div class="input_item">
+						<input id="number" type="text">
+						<div class="change">
+							<div id="plus">+</div>
+						</div>	
+					</div>
+					<div class="input_item">
+						<input id="affix" type="text" value="fx" disabled>
+					</div>
+				</div>
+				<button>give it to me</button>
+			</div>
+			<div class="half output">
+				<div class="barcode">
+					<img/>
+				</div>
+			</div>
+		</div>
+	</main>
+	<footer>
+		<div class="cont">
+			<div class="thanks">
+				<h4>Thanks to: </h4>
+				<div class="provider">
+		  		<!-- back-linking to www.tec-it.com is required -->
+				<a href='https://www.tec-it.com' title='Barcode Software by TEC-IT' target='_blank'>TEC-IT Barcode Generator</a>
+				</div>
+			</div>
+			<div class="ver">v 0.0.1</div>
+		</div>
+	</footer>
+	<script type="text/javascript" src="script.js"></script>	
+</body>
+</html>

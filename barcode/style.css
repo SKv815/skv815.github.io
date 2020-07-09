@@ -1,0 +1,135 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-family: Arial, sans-serif;
+	color: #292930;
+}
+
+header {
+	background-color: #8e91a1;
+	padding: 0.5rem 0;
+}
+
+.cont {
+	width: 80vw;
+	position: relative;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.half {
+	padding: 1rem 0;
+}
+
+.input {
+	border-bottom: 1px solid silver;
+}
+
+.form {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin: 0 auto;
+	width: 33vw;
+}
+
+select {
+	width: 10vw;
+	text-transform: uppercase;
+	text-align: center;
+	padding: 3px;
+	outline: none;
+}
+
+option {
+	padding: 10px;
+}
+
+input {
+	width: 10vw;
+	text-transform: uppercase;
+	text-align: center;
+	border: 1px solid gray;
+	padding: 3px;
+	outline: none;
+}
+
+.input_item {
+	position: relative;
+}
+
+.change {
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 3px;
+}
+
+#plus {
+	background-color: lightgray;
+	padding: 0 3px;
+	-webkit-user-select: none;
+}
+#plus:hover {
+	background-color: silver;
+}
+
+#plus:active {
+	background-color: lightgray;
+}
+
+#number {
+	padding-right: 10px;
+}
+#affix {
+	background-color: silver;
+	color: gray;
+}
+
+button {
+	width: 33vw;
+	margin: 1rem 0;
+	padding: 3px;
+	border: 1px solid gray;
+	background-color: lightgray;
+	outline: none;
+}
+
+button:hover {
+	background-color: silver;
+}
+
+button:active {
+	background-color: lightgray;
+}
+
+.barcode {
+	margin-top: 1rem;
+	text-align: center;
+}
+
+footer {
+	position: absolute;
+	bottom: 0;
+	width: 100vw;
+	padding: 0.5rem 0;
+	background-color: #8e91a1;
+}
+
+.thanks * {
+	display: inline-block;
+}
+
+.provider {
+	 text-align:center; 
+	 font-size:1rem; 
+	 font-family: Source Sans Pro, Arial, sans-serif;
+}
+
+.ver {
+	position: absolute;
+	left: 0;
+	top: 0;
+	font-size: 0.8rem;
+}
