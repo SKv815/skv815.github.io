@@ -19,7 +19,6 @@ header {
 }
 
 .half {
-	padding: 1rem 0;
 }
 
 .input {
@@ -30,13 +29,12 @@ header {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-	margin: 0 auto;
+	margin: 10px auto;
 	width: 33vw;
 }
 
 select {
 	width: 10vw;
-	text-transform: uppercase;
 	text-align: center;
 	padding: 3px;
 	outline: none;
@@ -82,10 +80,14 @@ input {
 #number {
 	padding-right: 10px;
 }
-#affix {
+
+#lp {
+	visibility: hidden;
+}
+/*#affix {
 	background-color: silver;
 	color: gray;
-}
+}*/
 
 button {
 	width: 33vw;
@@ -104,8 +106,12 @@ button:active {
 	background-color: lightgray;
 }
 
-.barcode {
-	margin-top: 1rem;
+.barcode:nth-child(1) {
+	margin: 1rem 0 13rem 0;
+	text-align: center;
+}
+.barcode:nth-child(2) {
+	margin: 13rem 0 1rem 0;
 	text-align: center;
 }
 
