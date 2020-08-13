@@ -4,11 +4,16 @@
 	padding: 0;
 	font-family: Arial, sans-serif;
 	color: #292930;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 
 header {
 	background-color: #8e91a1;
-	padding: 0.5rem 0;
+	height: 5vh;
+	line-height: 5vh;
 }
 
 .cont {
@@ -18,25 +23,33 @@ header {
 	text-align: center;
 }
 
-.half {
-}
-
-.input {
+section {
+	height: 37vh;
+	padding-top: 7vh;
 	border-bottom: 1px solid silver;
 }
+section:first-child {
+	height: 17vh;
+	padding-top: 1vh;
+}
+section:last-child {
+	border-bottom: none;
+}
 
-.form {
+.row {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-	margin: 10px auto;
+	margin: 0px auto;
+	padding: 0.7vh 0;
 	width: 33vw;
 }
 
 select {
-	width: 10vw;
+	width: 100%;
 	text-align: center;
-	padding: 3px;
+	height: 24px;
+	line-height: 24px;
 	outline: none;
 }
 
@@ -45,15 +58,16 @@ option {
 }
 
 input {
-	width: 10vw;
-	text-transform: uppercase;
-	text-align: center;
+	width: 100%;
 	border: 1px solid gray;
-	padding: 3px;
-	outline: none;
+	height: 24px;
+	line-height: 24px;
+	outline: none;	
 }
 
 .input_item {
+	width: 10vw;
+	text-align: left;
 	position: relative;
 }
 
@@ -78,22 +92,124 @@ input {
 }
 
 #number {
-	padding-right: 10px;
+	text-align: center;
+	padding-right: 12px; 
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 
-#lp {
+label[for=advanced] {
+	padding-left: 40px;
+	line-height: 24px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+#advanced,
+input[name=side] {
+	opacity: 0;
+	height: 0;
+	width: 0;
+	position: absolute;
+}
+
+#settings {
+	position: absolute;
+	height: 22px;
+	width: 22px;
+	right: 0;
+	top: 2px;
+	background: url("images/gear.png") center no-repeat;
+	background-size: contain;
+	cursor: pointer;
+}
+
+.check {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 24px;
+	width: 24px;
+	border-radius: 2px;
+	background-color: lightgray;
+	transition: background 0.2s ease;
+}
+
+.checkcontainer:hover input ~ .check {
+	background-color: silver;
+	transition: background 0.2s ease;
+}
+
+.checkcontainer > input:checked ~ .check {
+	background-color: #2d75eb;
+}
+
+.check::after {
+	content: "";
+	position: absolute;
+	display: none;
+}
+
+.checkcontainer input:checked ~ .check::after {
+	display: block;
+}
+
+.checkcontainer .check::after {
+	left: 8px;
+	top: 4px;
+	width: 5px;
+	height: 10px;
+	border: solid white;
+	border-width: 0 3px 3px 0;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+.undercover {
 	visibility: hidden;
 }
-/*#affix {
+
+.sides {
+	height: 24px;
+	line-height: 24px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.side_icon {
+	height: 24px;
+	width: 24px;
+}
+
+.side_icon input + label span {
+	display: block;
+	line-height: 24px;
+	border-radius: 2px;
+	text-align: center;
+	background-color: lightgray;
+	transition: background 0.2s ease;
+}
+.side_icon input + label:hover span {
 	background-color: silver;
-	color: gray;
-}*/
+	transition: background 0.2s ease
+}
+.side_icon input:checked + label span {
+	color: white;
+	background-color: #2d75eb;
+	transition: background 0.2s ease
+}
 
 button {
 	width: 33vw;
-	margin: 1rem 0;
-	padding: 3px;
+	height: 24px;
+	line-height: 24px;
 	border: 1px solid gray;
+	border-radius: 2px;
 	background-color: lightgray;
 	outline: none;
 }
@@ -106,20 +222,60 @@ button:active {
 	background-color: lightgray;
 }
 
-.barcode:nth-child(1) {
-	margin: 1rem 0 13rem 0;
+.barcode {
 	text-align: center;
 }
-.barcode:nth-child(2) {
-	margin: 13rem 0 1rem 0;
+
+#w {
+	position: absolute;
+	height: 400px;
+	width: 300px;
+	background-color: white;
+	border: 2px solid #8e91a1;
+	top: 110px;
+	left: 120px;
+	visibility: hidden;
+}
+#w_header {
+	height: 24px;
+	line-height: 24px;
+	background-color: #2d75eb;
+	color: white;
+	text-align: center;
+	border-bottom: 1px solid #8e91a1;
+}
+#w_content {
+	height: 376px;
+	overflow-y: auto;
+}
+.w_load_point {
+	display: flex;
+	justify-content: space-between;
+	margin: 10px;
+	padding: 8px 0;
+	border-bottom: 1px solid silver;
+}
+.w_lp_name {
+	width: 35%;
+}
+.lmu {
+	height: 100%;
 	text-align: center;
 }
+.w_lp_side {
+	width: 55%;
+}
+.w_lp_side input:nth-child(2) {
+	margin: 2px 0;
+}
+
 
 footer {
 	position: absolute;
 	bottom: 0;
+	height: 4vh;
 	width: 100vw;
-	padding: 0.5rem 0;
+	line-height: 4vh;
 	background-color: #8e91a1;
 }
 

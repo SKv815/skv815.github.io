@@ -13,8 +13,8 @@
 	</header>
 	<main>
 		<div class="cont">
-			<div class="half input">
-				<div class="form">
+			<section>
+				<div class="row">
 					<div class="input_item">
 						<select id="preffix">
 							<option value="AMJ">AMJ</option>
@@ -39,27 +39,86 @@
 						</select>
 					</div>
 				</div>
-				<div class="form">
+				<div class="row">
 					<div class="input_item">
-						<label for="advanced">Load point code</label>
-						<input id="advanced" type="checkbox">
+						<label for="advanced" class="checkcontainer">Load point
+							<input id="advanced" type="checkbox">
+							<span class="check"></span>
+						</label>
+						<div id="settings"></div>
 					</div>
 					<div class="input_item">
-						<input id="lp" type="text">
+						<select id="zoneselect" class="undercover">
+						</select>
+					</div>
+					<div class="input_item">
+						<div class="undercover sides">
+							<div class="side_icon">
+								<input id="full" type="radio" value="f" name="side">
+								<label for="full"><span class="">F</span></label>
+							</div>
+							<div class="side_icon">
+								<input id="left" type="radio" value="l" name="side">
+								<label for="left"><span class="">L</span></label>
+							</div>
+							<div class="side_icon">
+								<input id="right" type="radio" value="r" name="side">
+								<label for="right"><span class="">R</span></label>
+							</div>
+						</div>
 					</div>				
 				</div>
-				<button>give it to me</button>
-			</div>
-			<div class="half output">
+				<div class="row">
+					<button>give it to me</button>
+				</div>
+			</section>
+			<section>
 				<div class="barcode">
 					<img/>
 				</div>
+			</section>
+			<section>
 				<div class="barcode">
 					<img/>
+				</div>
+			</section>
+		</div>
+	</main>
+	<div id="w">
+		<div id="w_header">Settings</div>
+		<div id="w_content">
+			<div class="w_load_point">
+				<div class="w_lp_name">
+					<input class="lmu" type="text" value="">
+				</div>
+				<div class="w_lp_side">
+					<input type="text" placeholder="Full" value="12345">
+					<input type="text" placeholder="Left" value="12346">
+					<input type="text" placeholder="Right"value="12347">
+				</div>
+			</div>
+			<div class="w_load_point">
+				<div class="w_lp_name">
+					<input class="lmu" type="text"  value="">
+				</div>
+				<div class="w_lp_side">
+					<input type="text" placeholder="Full" value="">
+					<input type="text" placeholder="Left" value="">
+					<input type="text" placeholder="Right" value="">
+				</div>
+			</div>
+			<div class="w_load_point">
+				<div class="w_lp_name">
+					<input class="lmu" type="text" value="">
+				</div>
+				<div class="w_lp_side">
+					<input type="text" placeholder="Full" value="">
+					<input type="text" placeholder="Left" value="">
+					<input type="text" placeholder="Right" value="">
 				</div>
 			</div>
 		</div>
-	</main>
+	</div>
 	<footer>
 		<div class="cont">
 			<div class="thanks">

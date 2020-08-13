@@ -9,10 +9,38 @@ window.onload = function() {
 		num,
 		adv = document.getElementById('advanced'),
 		advStatus = adv.checked,
+		settings = document.getElementById('settings'),
+		settingsToggle = false,
+		settingsWindow = document.getElementById('w'),
+		zoneselect = document.getElementById('zoneselect'),
 		lp = document.getElementById('lp'),
-		lpValue;
+		lpValue,
+		undercover = document.getElementsByClassName('undercover');
 
 	numInput.value = window.localStorage.getItem('save');
+
+	function test() {
+		let tt = document.getElementsByClassName('lmu')[0];
+		tt.value = encodeURI("123ff455555").toString();
+	}
+	function getSettings() {
+		let allLoadPoints = settingsWindow.getElementsByClassName('lmu');
+		for (let i = 0; i <= allLoadPoints.length - 1; i++) {
+			let checkLoadPoint = allLoadPoints[i].value;
+			if (checkLoadPoint > 0) {
+				let newOption = document.createElement('Option');
+				let optionText = document.createTextNode(allLoadPoints[i].value);
+				newOption.appendChild(optionText);
+				newOption.setAttribute('value', 'Option Value');
+				zoneselect.appendChild(newOption);
+				console.log(allLoadPoints[i].value.toString());
+				console.log(allLoadPoints[i].value);
+			}
+		}
+	}
+	test();
+	getSettings();
+	
 
 	function integersOnly() {
 		this.value = this.value.replace(/[^-0-9]/g,'');
@@ -42,9 +70,15 @@ window.onload = function() {
 	function addLoadPoint() {
 		advStatus = adv.checked;
 		if (advStatus) {
-			lp.style.visibility = 'visible';
+			for (let i = 0; i <= undercover.length - 1; i++) {
+				undercover[i].style.visibility = 'visible';
+			}
 		}
-		else lp.style.visibility = 'hidden';
+		else {
+			for (let i = 0; i <= undercover.length - 1; i++) {
+				undercover[i].style.visibility = 'hidden';
+			}
+		}
 	}
 
 	function generate() {
@@ -81,4 +115,15 @@ window.onload = function() {
 	btn.addEventListener('click', generate);
 	aff.addEventListener('change', trimmer);
 	adv.addEventListener('click', addLoadPoint);
+
+	settings.addEventListener('click', function windowOpenClose() {
+		if (settingsToggle) {
+			settingsWindow.style.visibility = 'hidden';
+			settingsToggle = false;
+		}
+		else {
+			settingsWindow.style.visibility = 'visible';
+			settingsToggle = true;
+		}
+	});
 }
