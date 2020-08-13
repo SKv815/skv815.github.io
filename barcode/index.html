@@ -54,22 +54,22 @@
 					<div class="input_item">
 						<div class="undercover sides">
 							<div class="side_icon">
-								<input id="full" type="radio" value="f" name="side">
+								<input id="full" type="radio" value="0" name="side">
 								<label for="full"><span class="">F</span></label>
 							</div>
 							<div class="side_icon">
-								<input id="left" type="radio" value="l" name="side">
+								<input id="left" type="radio" value="1" name="side">
 								<label for="left"><span class="">L</span></label>
 							</div>
 							<div class="side_icon">
-								<input id="right" type="radio" value="r" name="side">
+								<input id="right" type="radio" value="2" name="side">
 								<label for="right"><span class="">R</span></label>
 							</div>
 						</div>
 					</div>				
 				</div>
 				<div class="row">
-					<button>give it to me</button>
+					<button class="start">give it to me</button>
 				</div>
 			</section>
 			<section>
@@ -92,9 +92,9 @@
 					<input class="lmu" type="text" value="86:04">
 				</div>
 				<div class="w_lp_side">
-					<input type="text" placeholder="Full" value="86_111_F">
-					<input type="text" placeholder="Left" value="86_111_L">
-					<input type="text" placeholder="Right"value="86_111_R">
+					<input class="lmu_input" type="text" placeholder="Full" value="86_111_F">
+					<input class="lmu_input" type="text" placeholder="Left" value="86_111_L">
+					<input class="lmu_input" type="text" placeholder="Right"value="86_111_R">
 				</div>
 			</div>
 			<div class="w_load_point">
@@ -102,9 +102,9 @@
 					<input class="lmu" type="text"  value="85:e3">
 				</div>
 				<div class="w_lp_side">
-					<input type="text" placeholder="Full" value="85_222_F">
-					<input type="text" placeholder="Left" value="85_222_L">
-					<input type="text" placeholder="Right" value="85_222_R">
+					<input class="lmu_input" type="text" placeholder="Full" value="85_222_F">
+					<input class="lmu_input" type="text" placeholder="Left" value="85_222_L">
+					<input class="lmu_input" type="text" placeholder="Right" value="85_222_R">
 				</div>
 			</div>
 			<div class="w_load_point">
@@ -112,11 +112,24 @@
 					<input class="lmu" type="text" value="">
 				</div>
 				<div class="w_lp_side">
-					<input type="text" placeholder="Full" value="">
-					<input type="text" placeholder="Left" value="">
-					<input type="text" placeholder="Right" value="">
+					<input class="lmu_input" type="text" placeholder="Full" value="">
+					<input class="lmu_input" type="text" placeholder="Left" value="">
+					<input class="lmu_input" type="text" placeholder="Right" value="">
 				</div>
 			</div>
+			<div class="w_load_point">
+				<div class="w_lp_name">
+					<input class="lmu" type="text" value="">
+				</div>
+				<div class="w_lp_side">
+					<input class="lmu_input" type="text" placeholder="Full" value="">
+					<input class="lmu_input" type="text" placeholder="Left" value="">
+					<input class="lmu_input" type="text" placeholder="Right" value="">
+				</div>
+			</div>
+		</div>
+		<div class="w_save">
+			<button id="save">save</button>
 		</div>
 	</div>
 	<footer>

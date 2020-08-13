@@ -101,7 +101,7 @@ input {
 }
 
 label[for=advanced] {
-	padding-left: 40px;
+	padding-left: 30px;
 	line-height: 24px;
 	-webkit-user-select: none;
 	-moz-user-select: none;
@@ -205,9 +205,6 @@ input[name=side] {
 }
 
 button {
-	width: 33vw;
-	height: 24px;
-	line-height: 24px;
 	border: 1px solid gray;
 	border-radius: 2px;
 	background-color: lightgray;
@@ -221,6 +218,12 @@ button:hover {
 button:active {
 	background-color: lightgray;
 }
+.start {
+	width: 33vw;
+	height: 24px;
+	line-height: 24px;
+	
+}
 
 .barcode {
 	text-align: center;
@@ -233,7 +236,7 @@ button:active {
 	background-color: white;
 	border: 2px solid #8e91a1;
 	top: 110px;
-	left: 120px;
+	left: 90px;
 	visibility: hidden;
 }
 #w_header {
@@ -245,7 +248,7 @@ button:active {
 	border-bottom: 1px solid #8e91a1;
 }
 #w_content {
-	height: 376px;
+	height: 348px;
 	overflow-y: auto;
 }
 .w_load_point {
@@ -268,7 +271,17 @@ button:active {
 .w_lp_side input:nth-child(2) {
 	margin: 2px 0;
 }
-
+.w_save {
+	background-color: white;
+	height: 24px;
+	text-align: right;
+}
+#save {
+	width: 60px;
+	height: 20px;
+	line-height: 20px;
+	margin: 2px 30px;
+}
 
 footer {
 	position: absolute;

@@ -14,8 +14,10 @@ window.onload = function() {
 		settingsWindow = document.getElementById('w'),
 		zoneselect = document.getElementById('zoneselect'),
 		lp = document.getElementById('lp'),
-		lpValue,
-		undercover = document.getElementsByClassName('undercover');
+		undercover = document.getElementsByClassName('undercover'),
+		allZoneNames = [],
+		zoneIsSelected,
+		sideChecked = 0;
 
 	numInput.value = window.localStorage.getItem('save');
 
@@ -23,19 +25,23 @@ window.onload = function() {
 		let allLoadPoints = settingsWindow.getElementsByClassName('lmu');
 		for (let i = 0; i <= allLoadPoints.length - 1; i++) {
 			let checkLoadPoint = allLoadPoints[i].value;
+			allZoneNames.push(allLoadPoints[i].value);
 			if (checkLoadPoint > '0') {
 				let newOption = document.createElement('Option');
 				let optionText = document.createTextNode(allLoadPoints[i].value);
 				newOption.appendChild(optionText);
-				newOption.setAttribute('value', 'Option Value');
+				newOption.setAttribute('value', allLoadPoints[i].value);
 				zoneselect.appendChild(newOption);
-				console.log(allLoadPoints[i].value.toString());
-				console.log(allLoadPoints[i].value);
 			}
 		}
 	}
+	
+	function pullCode() {
+			zoneIsSelected = zoneselect.getElementsByTagName('option')[zoneselect.selectedIndex].value;
+	}
 
 	getSettings();
+	pullCode();
 	
 
 	function integersOnly() {
@@ -79,16 +85,26 @@ window.onload = function() {
 
 	function generate() {
 		let preValue = pre.value.toUpperCase(),
-			affValue = aff.value.toUpperCase();
+			affValue = aff.value.toUpperCase(),
+			zoneselectIndex = 0,
+			targetZone,
+			lmuInput;
 		num = numInput.value;
+		for (i = 0; i <= allZoneNames.length -1; i++) {
+			if (zoneIsSelected == allZoneNames[i]) {
+				targetZone = settingsWindow.getElementsByClassName('w_load_point')[i];
+			}
+		}
+		lmuInput = targetZone.getElementsByClassName('lmu_input')[sideChecked].value;
+		// lmuInputs = targetZone.getElementsByClassName('lmu_input')[1].value;
+		console.log(lmuInput);
 			
 		if (num > '00000' && advStatus) {
 			numInput.style.borderColor = "gray";
 			barCode1.src = 'https://barcode.tec-it.com/barcode.ashx?data=' + preValue + num + affValue + '&code=Code128&dpi=96&dataseparator=';
 			window.localStorage.setItem('save', numInput.value);
 
-			lpValue = document.getElementById("lp").value;
-			barCode2.src = 'https://barcode.tec-it.com/barcode.ashx?data=' + lpValue + '&code=Code128&dpi=96&dataseparator=';
+			barCode2.src = 'https://barcode.tec-it.com/barcode.ashx?data=' + lmuInput + '&code=Code128&dpi=96&dataseparator=';
 		}
 		else if (num > '00000' && !advStatus) {
 			numInput.style.borderColor = "gray";
@@ -111,6 +127,7 @@ window.onload = function() {
 	btn.addEventListener('click', generate);
 	aff.addEventListener('change', trimmer);
 	adv.addEventListener('click', addLoadPoint);
+	zoneselect.addEventListener('change', pullCode);
 
 	settings.addEventListener('click', function windowOpenClose() {
 		if (settingsToggle) {
