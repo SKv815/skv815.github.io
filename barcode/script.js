@@ -19,15 +19,11 @@ window.onload = function() {
 
 	numInput.value = window.localStorage.getItem('save');
 
-	function test() {
-		let tt = document.getElementsByClassName('lmu')[0];
-		tt.value = encodeURI("123ff455555").toString();
-	}
 	function getSettings() {
 		let allLoadPoints = settingsWindow.getElementsByClassName('lmu');
 		for (let i = 0; i <= allLoadPoints.length - 1; i++) {
 			let checkLoadPoint = allLoadPoints[i].value;
-			if (checkLoadPoint > 0) {
+			if (checkLoadPoint > '0') {
 				let newOption = document.createElement('Option');
 				let optionText = document.createTextNode(allLoadPoints[i].value);
 				newOption.appendChild(optionText);
@@ -38,7 +34,7 @@ window.onload = function() {
 			}
 		}
 	}
-	test();
+
 	getSettings();
 	
 
