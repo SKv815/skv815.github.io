@@ -5,7 +5,9 @@ window.onload = function() {
 		numInput = document.getElementById('number'),
 		plus = document.getElementById('plus'),
 		pre = document.getElementById('preffix'),
+		preValue,
 		aff = document.getElementById('affix'),
+		affValue,
 		num,
 		adv = document.getElementById('advanced'),
 		advStatus = adv.checked,
@@ -17,11 +19,15 @@ window.onload = function() {
 		undercover = document.getElementsByClassName('undercover'),
 		allZoneNames = [],
 		zoneIsSelected,
-		sideChecked = 0;
+		radioButtons = document.getElementsByName('side'),
+		sideChecked = 0,
+		saveBtn = document.getElementById('save');
 
 	numInput.value = window.localStorage.getItem('save');
 
 	function getSettings() {
+		zoneselect.innerHTML = '';
+		allZoneNames = [];
 		let allLoadPoints = settingsWindow.getElementsByClassName('lmu');
 		for (let i = 0; i <= allLoadPoints.length - 1; i++) {
 			let checkLoadPoint = allLoadPoints[i].value;
@@ -35,6 +41,16 @@ window.onload = function() {
 			}
 		}
 	}
+
+	// function preSelectContainerType() {
+	// 	preValue = pre.value.toUpperCase();
+	// 	if (preValue == 'AMJ' || preValue == 'AAD' || preValue == 'SAA' || preValue == 'AQF') {
+	// 		console.log(sideChecked);
+	// 	}
+	// 	else {
+	// 		console.log(sideChecked);
+	// 	}
+	// }
 	
 	function pullCode() {
 			zoneIsSelected = zoneselect.getElementsByTagName('option')[zoneselect.selectedIndex].value;
@@ -42,7 +58,7 @@ window.onload = function() {
 
 	getSettings();
 	pullCode();
-	
+
 
 	function integersOnly() {
 		this.value = this.value.replace(/[^-0-9]/g,'');
@@ -84,9 +100,9 @@ window.onload = function() {
 	}
 
 	function generate() {
-		let preValue = pre.value.toUpperCase(),
-			affValue = aff.value.toUpperCase(),
-			zoneselectIndex = 0,
+		preValue = pre.value.toUpperCase();
+		affValue = aff.value.toUpperCase();
+		let	zoneselectIndex = 0,
 			targetZone,
 			lmuInput;
 		num = numInput.value;
@@ -95,15 +111,12 @@ window.onload = function() {
 				targetZone = settingsWindow.getElementsByClassName('w_load_point')[i];
 			}
 		}
-		lmuInput = targetZone.getElementsByClassName('lmu_input')[sideChecked].value;
-		// lmuInputs = targetZone.getElementsByClassName('lmu_input')[1].value;
-		console.log(lmuInput);
 			
 		if (num > '00000' && advStatus) {
 			numInput.style.borderColor = "gray";
 			barCode1.src = 'https://barcode.tec-it.com/barcode.ashx?data=' + preValue + num + affValue + '&code=Code128&dpi=96&dataseparator=';
 			window.localStorage.setItem('save', numInput.value);
-
+			lmuInput = targetZone.getElementsByClassName('lmu_input')[sideChecked].value;
 			barCode2.src = 'https://barcode.tec-it.com/barcode.ashx?data=' + lmuInput + '&code=Code128&dpi=96&dataseparator=';
 		}
 		else if (num > '00000' && !advStatus) {
@@ -128,6 +141,8 @@ window.onload = function() {
 	aff.addEventListener('change', trimmer);
 	adv.addEventListener('click', addLoadPoint);
 	zoneselect.addEventListener('change', pullCode);
+	// pre.addEventListener('change', preSelectContainerType);
+	saveBtn.addEventListener('click', getSettings);
 
 	settings.addEventListener('click', function windowOpenClose() {
 		if (settingsToggle) {
@@ -139,4 +154,9 @@ window.onload = function() {
 			settingsToggle = true;
 		}
 	});
+	for (let i = 0; i < radioButtons.length; i++) {
+		radioButtons[i].addEventListener('change', function() {
+			sideChecked = radioButtons[i].value;
+		});
+	}
 }
