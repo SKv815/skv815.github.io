@@ -14,6 +14,7 @@ window.onload = function() {
 		settings = document.getElementById('settings'),
 		settingsToggle = false,
 		settingsWindow = document.getElementById('w'),
+		settingsHeader = document.getElementById('w_header'),
 		zoneselect = document.getElementById('zoneselect'),
 		lp = document.getElementById('lp'),
 		undercover = document.getElementsByClassName('undercover'),
@@ -22,7 +23,13 @@ window.onload = function() {
 		radioButtons = document.getElementsByName('side'),
 		sideChecked = 0,
 		close = document.getElementsByClassName('close')[0],
-		saveBtn = document.getElementById('save');
+		saveBtn = document.getElementById('save'),
+		draggable = false,
+		minY,
+		maxX,
+		maxY,
+		xx,
+		yy;
 
 	numInput.value = window.localStorage.getItem('save');
 
@@ -160,10 +167,57 @@ window.onload = function() {
 	settings.addEventListener('click', windowOpenClose);
 	close.addEventListener('click', windowOpenClose);
 
-	
+
 	for (let i = 0; i < radioButtons.length; i++) {
 		radioButtons[i].addEventListener('change', function() {
 			sideChecked = radioButtons[i].value;
 		});
 	}
+
+// -----     drag and drop for settings window     -----
+
+	function drop() {
+		draggable = false;
+	}
+	function drag() {
+		maxX = (document.getElementsByTagName('main')[0].offsetWidth - settingsWindow.offsetWidth - 1);
+		minY = document.getElementsByTagName('header')[0].offsetHeight;
+		maxY = (document.getElementsByTagName('main')[0].offsetHeight + minY - settingsWindow.offsetHeight);
+		draggable = true;
+		document.addEventListener ('mouseup', drop);
+		xx = event.offsetX;
+		yy = event.offsetY;
+			console.log(maxX);
+			console.log(minY);
+			console.log(maxY);
+	}
+	function move() {
+		if (draggable) {
+			let x = event.clientX - xx,
+				y = event.clientY - yy;
+			
+			settingsWindow.style.left = (x + 'px');
+			settingsWindow.style.top = (y + 'px');
+
+			if (x >= maxX) {
+				settingsWindow.style.left = (maxX + 'px');
+			}
+			else if (x <= 0) {
+				settingsWindow.style.left = (0 + 'px');
+			}
+
+			if (y >= maxY) {
+				settingsWindow.style.top = (maxY + 'px');
+			}
+			else if (y <= minY) {
+				settingsWindow.style.top = (minY + 'px');
+			}
+		}
+	}
+
+	
+	settingsHeader.addEventListener ('mousedown', drag);
+	document.addEventListener ('mousemove', move);
+	settingsHeader.addEventListener ('mouseup', drop);
+
 }

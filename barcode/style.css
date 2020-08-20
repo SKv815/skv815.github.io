@@ -222,7 +222,6 @@ button:active {
 	width: 33vw;
 	height: 24px;
 	line-height: 24px;
-	
 }
 
 .barcode {
@@ -243,7 +242,6 @@ button:active {
 	height: 24px;
 	line-height: 24px;
 	background-color: #2d75eb;
-	margin-left: 1px;
 	color: white;
 	text-align: center;
 	border-bottom: 1px solid #8e91a1;
@@ -289,6 +287,7 @@ button:active {
 	height: 348px;
 	overflow-y: auto;
 }
+
 .w_load_point {
 	display: flex;
 	justify-content: space-between;
@@ -299,22 +298,26 @@ button:active {
 .w_lp_name {
 	width: 35%;
 }
+
 .lmu {
 	height: 100%;
 	text-align: center;
 }
+
 .w_lp_side {
 	width: 55%;
 }
+
 .w_lp_side input:nth-child(2) {
 	margin: 2px 0;
 }
+
 .w_save {
 	background-color: white;
 	height: 24px;
-	margin-left: 1px;
 	text-align: right;
 }
+
 #save {
 	width: 60px;
 	height: 20px;
