@@ -248,6 +248,43 @@ button:active {
 	text-align: center;
 	border-bottom: 1px solid #8e91a1;
 }
+.close {
+	position: absolute;
+	height: 21px;
+	width: 21px;
+	right: 1px;
+	top: 1px;
+}
+.close:hover {
+	background-color: rgba(0, 0, 0, 0.1); 
+}
+.close::before,
+.close::after {
+	content: "";
+	display: block;
+	position: absolute;
+	background-color: #292930;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+.close::before {
+	height: 1px;
+	width: 17px;
+	top: 10px;
+	left: 2px;
+}
+.close::after {
+	height: 17px;
+	width: 1px;
+	top: 2px;
+	left: 10px;
+}
+.close:hover::before,
+.close:hover::after {
+	background-color: white;
+}
+
 #w_content {
 	height: 348px;
 	overflow-y: auto;

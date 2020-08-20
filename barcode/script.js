@@ -21,6 +21,7 @@ window.onload = function() {
 		zoneIsSelected,
 		radioButtons = document.getElementsByName('side'),
 		sideChecked = 0,
+		close = document.getElementsByClassName('close')[0],
 		saveBtn = document.getElementById('save');
 
 	numInput.value = window.localStorage.getItem('save');
@@ -131,6 +132,18 @@ window.onload = function() {
 		}
 		
 	}
+
+	function windowOpenClose() {
+		if (settingsToggle) {
+			settingsWindow.style.visibility = 'hidden';
+			settingsToggle = false;
+		}
+		else {
+			settingsWindow.style.visibility = 'visible';
+			settingsToggle = true;
+		}
+	}
+
 	trimmer();
 	numInput.addEventListener('input', integersOnly);
 	numInput.addEventListener('change', trimmer);
@@ -144,16 +157,10 @@ window.onload = function() {
 	// pre.addEventListener('change', preSelectContainerType);
 	saveBtn.addEventListener('click', getSettings);
 
-	settings.addEventListener('click', function windowOpenClose() {
-		if (settingsToggle) {
-			settingsWindow.style.visibility = 'hidden';
-			settingsToggle = false;
-		}
-		else {
-			settingsWindow.style.visibility = 'visible';
-			settingsToggle = true;
-		}
-	});
+	settings.addEventListener('click', windowOpenClose);
+	close.addEventListener('click', windowOpenClose);
+
+	
 	for (let i = 0; i < radioButtons.length; i++) {
 		radioButtons[i].addEventListener('change', function() {
 			sideChecked = radioButtons[i].value;
