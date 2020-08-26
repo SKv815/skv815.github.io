@@ -28,10 +28,12 @@ section {
 	padding-top: 7vh;
 	border-bottom: 1px solid silver;
 }
+
 section:first-child {
 	height: 17vh;
 	padding-top: 1vh;
 }
+
 section:last-child {
 	border-bottom: none;
 }
@@ -83,6 +85,7 @@ input {
 	padding: 0 3px;
 	-webkit-user-select: none;
 }
+
 #plus:hover {
 	background-color: silver;
 }
@@ -203,6 +206,11 @@ input[name=side] {
 	background-color: #2d75eb;
 	transition: background 0.2s ease
 }
+.side_icon input:disabled + label span {
+	color: silver;
+	background-color: lightgray;
+	transition: background 0.2s ease
+}
 
 button {
 	border: 1px solid gray;
@@ -238,6 +246,7 @@ button:active {
 	left: 90px;
 	visibility: hidden;
 }
+
 #w_header {
 	height: 24px;
 	line-height: 24px;
@@ -246,6 +255,7 @@ button:active {
 	text-align: center;
 	border-bottom: 1px solid #8e91a1;
 }
+
 .close {
 	position: absolute;
 	height: 21px;
@@ -253,9 +263,11 @@ button:active {
 	right: 1px;
 	top: 1px;
 }
+
 .close:hover {
 	background-color: rgba(0, 0, 0, 0.1); 
 }
+
 .close::before,
 .close::after {
 	content: "";
@@ -266,18 +278,21 @@ button:active {
 	-ms-transform: rotate(45deg);
 	transform: rotate(45deg);
 }
+
 .close::before {
 	height: 1px;
 	width: 17px;
 	top: 10px;
 	left: 2px;
 }
+
 .close::after {
 	height: 17px;
 	width: 1px;
 	top: 2px;
 	left: 10px;
 }
+
 .close:hover::before,
 .close:hover::after {
 	background-color: white;

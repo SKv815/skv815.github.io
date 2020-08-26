@@ -50,24 +50,20 @@ window.onload = function() {
 		}
 	}
 
-	for (let i = 0; i < radioButtons.length; i++) {
-		radioButtons[i].addEventListener('change', function() {
-			sideChecked = radioButtons[i].value;
-		});
-	}
-
-	// function assignSide() {
-
-	// }
-
 	function preSelectContainerType() {
 		let currentlySelected = sideChecked;
 		preValue = pre.value.toUpperCase();
 		if (preValue == 'AMJ' || preValue == 'AAD' || preValue == 'SAA' || preValue == 'AQF') {
+			radioButtons[0].removeAttribute("disabled");
 			radioButtons[0].checked = true;
 			sideChecked = 0;
+			radioButtons[1].setAttribute("disabled", true);
+			radioButtons[2].setAttribute("disabled", true);
 		}
 		else {
+			radioButtons[1].removeAttribute("disabled");
+			radioButtons[2].removeAttribute("disabled");
+			radioButtons[0].setAttribute("disabled", true);
 			if (currentlySelected == 0) {
 				radioButtons[1].checked = true;
 				sideChecked = 1;
@@ -76,19 +72,12 @@ window.onload = function() {
 				radioButtons[currentlySelected].checked = true;
 				sideChecked = currentlySelected;
 			}
-			
-			
 		}
 	}
-	preSelectContainerType();
-	
+
 	function pullCode() {
 			zoneIsSelected = zoneselect.getElementsByTagName('option')[zoneselect.selectedIndex].value;
 	}
-
-	getSettings();
-	pullCode();
-
 
 	function integersOnly() {
 		this.value = this.value.replace(/[^-0-9]/g,'');
@@ -104,7 +93,7 @@ window.onload = function() {
 			numInputTrimmed = ("0000" + numInput.value).slice(-4);
 		}
 		else {
-			console.log(affValue);
+			console.log('incorrect affix value: ' + affValue);
 		}
 		numInput.value = numInputTrimmed;
 	}
@@ -159,7 +148,6 @@ window.onload = function() {
 		else {
 			numInput.style.borderColor = "red";
 		}
-		
 	}
 
 	function windowOpenClose() {
@@ -173,30 +161,12 @@ window.onload = function() {
 		}
 	}
 
-	trimmer();
-	numInput.addEventListener('input', integersOnly);
-	numInput.addEventListener('change', trimmer);
-
-	plus.addEventListener('click', increaseNumber);
-
-	btn.addEventListener('click', generate);
-	aff.addEventListener('change', trimmer);
-	adv.addEventListener('click', addLoadPoint);
-	zoneselect.addEventListener('change', pullCode);
-	pre.addEventListener('change', preSelectContainerType);
-	saveBtn.addEventListener('click', getSettings);
-
-	settings.addEventListener('click', windowOpenClose);
-	close.addEventListener('click', windowOpenClose);
-
-
-
-
 // -----     drag and drop for settings window     -----
 
 	function drop() {
 		draggable = false;
 	}
+
 	function drag() {
 		maxX = (document.getElementsByTagName('main')[0].offsetWidth - settingsWindow.offsetWidth - 1);
 		minY = document.getElementsByTagName('header')[0].offsetHeight;
@@ -205,10 +175,8 @@ window.onload = function() {
 		document.addEventListener ('mouseup', drop);
 		xx = event.offsetX;
 		yy = event.offsetY;
-			console.log(maxX);
-			console.log(minY);
-			console.log(maxY);
 	}
+
 	function move() {
 		if (draggable) {
 			let x = event.clientX - xx,
@@ -233,7 +201,27 @@ window.onload = function() {
 		}
 	}
 
-	
+	preSelectContainerType();
+	getSettings();
+	pullCode();
+	trimmer();
+
+	for (let i = 0; i < radioButtons.length; i++) {
+		radioButtons[i].addEventListener('change', function() {
+			sideChecked = radioButtons[i].value;
+		});
+	}
+	numInput.addEventListener('input', integersOnly);
+	numInput.addEventListener('change', trimmer);
+	plus.addEventListener('click', increaseNumber);
+	btn.addEventListener('click', generate);
+	aff.addEventListener('change', trimmer);
+	adv.addEventListener('click', addLoadPoint);
+	zoneselect.addEventListener('change', pullCode);
+	pre.addEventListener('change', preSelectContainerType);
+	saveBtn.addEventListener('click', getSettings);
+	settings.addEventListener('click', windowOpenClose);
+	close.addEventListener('click', windowOpenClose);
 	settingsHeader.addEventListener ('mousedown', drag);
 	document.addEventListener ('mousemove', move);
 	settingsHeader.addEventListener ('mouseup', drop);
