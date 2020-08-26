@@ -50,15 +50,37 @@ window.onload = function() {
 		}
 	}
 
-	// function preSelectContainerType() {
-	// 	preValue = pre.value.toUpperCase();
-	// 	if (preValue == 'AMJ' || preValue == 'AAD' || preValue == 'SAA' || preValue == 'AQF') {
-	// 		console.log(sideChecked);
-	// 	}
-	// 	else {
-	// 		console.log(sideChecked);
-	// 	}
+	for (let i = 0; i < radioButtons.length; i++) {
+		radioButtons[i].addEventListener('change', function() {
+			sideChecked = radioButtons[i].value;
+		});
+	}
+
+	// function assignSide() {
+
 	// }
+
+	function preSelectContainerType() {
+		let currentlySelected = sideChecked;
+		preValue = pre.value.toUpperCase();
+		if (preValue == 'AMJ' || preValue == 'AAD' || preValue == 'SAA' || preValue == 'AQF') {
+			radioButtons[0].checked = true;
+			sideChecked = 0;
+		}
+		else {
+			if (currentlySelected == 0) {
+				radioButtons[1].checked = true;
+				sideChecked = 1;
+			}
+			else {
+				radioButtons[currentlySelected].checked = true;
+				sideChecked = currentlySelected;
+			}
+			
+			
+		}
+	}
+	preSelectContainerType();
 	
 	function pullCode() {
 			zoneIsSelected = zoneselect.getElementsByTagName('option')[zoneselect.selectedIndex].value;
@@ -161,18 +183,14 @@ window.onload = function() {
 	aff.addEventListener('change', trimmer);
 	adv.addEventListener('click', addLoadPoint);
 	zoneselect.addEventListener('change', pullCode);
-	// pre.addEventListener('change', preSelectContainerType);
+	pre.addEventListener('change', preSelectContainerType);
 	saveBtn.addEventListener('click', getSettings);
 
 	settings.addEventListener('click', windowOpenClose);
 	close.addEventListener('click', windowOpenClose);
 
 
-	for (let i = 0; i < radioButtons.length; i++) {
-		radioButtons[i].addEventListener('change', function() {
-			sideChecked = radioButtons[i].value;
-		});
-	}
+
 
 // -----     drag and drop for settings window     -----
 
