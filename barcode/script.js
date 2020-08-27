@@ -6,8 +6,10 @@ window.onload = function() {
 		plus = document.getElementById('plus'),
 		pre = document.getElementById('preffix'),
 		preValue,
+		preNumber = pre.getElementsByTagName('option'),
 		aff = document.getElementById('affix'),
 		affValue,
+		affNumber = aff.getElementsByTagName('option'),
 		num,
 		adv = document.getElementById('advanced'),
 		advStatus = adv.checked,
@@ -31,7 +33,15 @@ window.onload = function() {
 		xx,
 		yy;
 
-	numInput.value = window.localStorage.getItem('save');
+	numInput.value = window.localStorage.getItem('saveNum');
+	if (localStorage.getItem('savePrefix') !== null) {
+		preNumber[window.localStorage.getItem('savePrefix')].selected = true;
+	}
+	else {}
+	if (localStorage.getItem('saveAffix') !== null) {
+		affNumber[window.localStorage.getItem('saveAffix')].selected = true;
+	}
+	else {}
 
 	function getSettings() {
 		zoneselect.innerHTML = '';
@@ -134,19 +144,28 @@ window.onload = function() {
 		if (num > '00000' && advStatus) {
 			numInput.style.borderColor = "gray";
 			barCode1.src = 'https://barcode.tec-it.com/barcode.ashx?data=' + preValue + num + affValue + '&code=Code128&dpi=96&dataseparator=';
-			window.localStorage.setItem('save', numInput.value);
 			lmuInput = targetZone.getElementsByClassName('lmu_input')[sideChecked].value;
 			barCode2.src = 'https://barcode.tec-it.com/barcode.ashx?data=' + lmuInput + '&code=Code128&dpi=96&dataseparator=';
 		}
 		else if (num > '00000' && !advStatus) {
 			numInput.style.borderColor = "gray";
 			barCode1.src = 'https://barcode.tec-it.com/barcode.ashx?data=' + preValue + num + affValue + '&code=Code128&dpi=96&dataseparator=';
-			window.localStorage.setItem('save', numInput.value);
-
 			barCode2.src = '';
 		}
 		else {
 			numInput.style.borderColor = "red";
+		}
+		window.localStorage.setItem('saveNum', numInput.value);
+
+		for (j = 0; j < preNumber.length; j++) {
+			if (preNumber[j].selected) {
+				window.localStorage.setItem('savePrefix', j);
+			}
+		}
+		for (k = 0; k < affNumber.length; k++) {
+			if (affNumber[k].selected) {
+				window.localStorage.setItem('saveAffix', k);
+			}
 		}
 	}
 
