@@ -27,11 +27,16 @@ window.onload = function() {
 		close = document.getElementsByClassName('close')[0],
 		saveBtn = document.getElementById('save'),
 		draggable = false,
+		runBtn = document.getElementsByClassName('start')[0],
+		runBtnTextDefault = "Generate barcode",
+		runBtnTextAdvanced = "Generate barcodes",
 		minY,
 		maxX,
 		maxY,
 		xx,
 		yy;
+
+	runBtn.innerHTML = runBtnTextDefault
 
 	numInput.value = window.localStorage.getItem('saveNum');
 	if (localStorage.getItem('savePrefix') !== null) {
@@ -117,11 +122,13 @@ window.onload = function() {
 	function addLoadPoint() {
 		advStatus = adv.checked;
 		if (advStatus) {
+			runBtn.innerHTML =  runBtnTextAdvanced
 			for (let i = 0; i <= undercover.length - 1; i++) {
 				undercover[i].style.visibility = 'visible';
 			}
 		}
 		else {
+			runBtn.innerHTML =runBtnTextDefault
 			for (let i = 0; i <= undercover.length - 1; i++) {
 				undercover[i].style.visibility = 'hidden';
 			}
